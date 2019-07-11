@@ -9,8 +9,6 @@ class App extends React.Component {
     loggedIn: false
   }
 
-
-
   render() {
     return (
       <Router>
@@ -21,9 +19,6 @@ class App extends React.Component {
           <Route path="/contact" render={() => <></>} />
           <Route path="/profile" render={() => <></>} />
         </Switch>
-        {
-          // footer
-        }
       </Router>
     );
   }
