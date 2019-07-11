@@ -1,0 +1,1 @@
+// separate page with full content
