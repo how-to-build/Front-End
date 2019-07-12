@@ -1,6 +1,9 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
 
+import { Registering } from '../../actions/Registering';
+import { connect } from 'react-redux';
+
 class RegisterForm extends React.Component {
   state = {
     firstName: '',
@@ -12,17 +15,23 @@ class RegisterForm extends React.Component {
   
   handlerChange = e => {
     e.preventDefault();
-
-    console.log(e.target.value);
-
+    
     this.setState({ 
       [e.target.name]: `${[e.target.value]}`
     });
   }
 
+  handlerRegistering = e => {
+    e.preventDefault();
+
+    this.props.handlerFormsWorking();
+
+    this.props.Registering(this.state);
+  }
+
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handlerRegistering}>
         <FormGroup>
           <Label for="firstName">First Name</Label>
           <Input
@@ -69,10 +78,13 @@ class RegisterForm extends React.Component {
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <button>Log In</button>
+        <button
+          type="submit"
+          onClick={this.handlerRegistering}  
+        >Log In</button>
       </Form>
     )
   }
 }
 
-export default RegisterForm;
+export default connect(null, { Registering })(RegisterForm);

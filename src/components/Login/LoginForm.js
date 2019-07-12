@@ -1,5 +1,8 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { connect } from 'react-redux';
+
+import { LoggingIn } from '../../actions/LogIn';
 
 class LoginForm extends React.Component {
   state = {
@@ -11,13 +14,21 @@ class LoginForm extends React.Component {
     e.preventDefault();
 
     this.setState({ 
-      [e.target.name]: [e.target.value]
+      [e.target.name]: `${[e.target.value]}`
     });
+  }
+
+  handlerLogIn = e => {
+    e.preventDefault();
+
+    this.props.handlerFormsWorking();
+
+    this.props.LoggingIn(this.state);
   }
 
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.handlerLogIn}>
         <FormGroup>
           <Label>Username</Label>
           <Input
@@ -36,10 +47,13 @@ class LoginForm extends React.Component {
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <button>Log In</button>
+        <button
+          type="submit"
+          onClick={this.handlerLogIn}
+        >Log In</button>
       </Form>
     )
   }
 }
 
-export default LoginForm;
+export default connect(null, { LoggingIn })(LoginForm);
