@@ -11,11 +11,11 @@ class Login extends React.Component {
   handlerAccount = e => {
     e.preventDefault();
 
-    let value = () => {
-      return e.target.value === "Register" ? true : false;
-    } 
-
-    this.setState({ register: value });
+    if (e.target.innerText === "Register") {
+      this.setState({ register: true });
+    } else {
+      this.setState({ register: false });
+    }
   }
 
   render() {
