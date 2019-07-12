@@ -24,10 +24,11 @@ class RegisterForm extends React.Component {
     return (
       <Form>
         <FormGroup>
-          <Label>First Name</Label>
+          <Label for="firstName">First Name</Label>
           <Input
             type="text"
             name="firstName"
+            id="firstName"
             value={this.state.firstName}
             onChange={this.handlerChange}
           ></Input>
