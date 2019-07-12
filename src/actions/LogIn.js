@@ -11,7 +11,7 @@ export const LoggingIn = state => dispatch => {
     .get('https://frozen-hamlet-77739.herokuapp.com/', {
       headers: {
         username: state.username,
-        email: state.username
+        password: state.password
       }
     })
     .then(res => {
