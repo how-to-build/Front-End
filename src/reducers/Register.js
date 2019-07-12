@@ -7,9 +7,7 @@ const initialState = {
 }
 
 export const Registering = (state = initialState, action) => {
-  console.log(action.payload)
-
-  switch(action.payload) {
+  switch(action.type) {
     case REGISTER_PENDING:
       return {
         ...state,

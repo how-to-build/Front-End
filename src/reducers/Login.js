@@ -7,7 +7,7 @@ const initialState = {
 }
 
 export const LoggingIn = (state = initialState, action) => {
-  switch(action.payload) {
+  switch(action.type) {
     case LOGIN_PENDING:
       return {
         ...state,

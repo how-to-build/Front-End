@@ -26,9 +26,7 @@ export const Registering = state => dispatch => {
       }
     })
     .catch(err => {
-      setTimeout(() => {
-        dispatch({ type: REGISTER_PENDING, payload: false });
-        dispatch({ type: REGISTER_ERROR, payload: err });
-      }, 3000);
+      dispatch({ type: REGISTER_PENDING, payload: false });
+      dispatch({ type: REGISTER_ERROR, payload: err });
     })
 };
