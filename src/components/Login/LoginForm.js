@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Alert, Button } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import { LoggingIn } from '../../actions/LogIn';
@@ -7,7 +7,8 @@ import { LoggingIn } from '../../actions/LogIn';
 class LoginForm extends React.Component {
   state = {
     username: "",
-    password: ""
+    password: "",
+    isTooShort: false
   }
 
   handlerChange = e => {
@@ -21,19 +22,25 @@ class LoginForm extends React.Component {
   handlerLogIn = e => {
     e.preventDefault();
 
-    this.props.handlerFormsWorking();
-
-    this.props.LoggingIn(this.state);
+    if (this.state.username.length > 4 && this.state.password.length > 4) {
+      this.props.LoggingIn(this.state);
+    } else {
+      this.setState({ isTooShort: true });
+    }
   }
 
   render() {
     return (
       <Form onSubmit={this.handlerLogIn}>
+        {
+          this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
+        }
         <FormGroup>
           <Label>Username</Label>
           <Input
             type="text"
             name="username"
+            autoComplete="off"
             value={this.state.username}
             onChange={this.handlerChange}
           ></Input>
@@ -41,16 +48,18 @@ class LoginForm extends React.Component {
         <FormGroup>
           <Label>Password</Label>
           <Input
-            type="text"
+            type="password"
             name="password"
+            autoComplete="off"
             value={this.state.password}
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <button
+        <Button
           type="submit"
           onClick={this.handlerLogIn}
-        >Log In</button>
+          color="primary" size="md" block
+        >Log In</Button>
       </Form>
     )
   }

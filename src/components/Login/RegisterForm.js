@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Alert, Button } from 'reactstrap';
 
 import { Registering } from '../../actions/Registering';
 import { connect } from 'react-redux';
@@ -10,7 +10,8 @@ class RegisterForm extends React.Component {
     lastName: '',
     username: '',
     email: '',
-    password: ''
+    password: '',
+    isTooShort: false
   }
   
   handlerChange = e => {
@@ -24,14 +25,19 @@ class RegisterForm extends React.Component {
   handlerRegistering = e => {
     e.preventDefault();
 
-    this.props.handlerFormsWorking();
-
-    this.props.Registering(this.state);
+    if (this.state.username.length > 4 && this.state.password.length > 4) {
+      this.props.Registering(this.state);
+    } else {
+      this.setState({ isTooShort: true });
+    }   
   }
 
   render() {
     return (
-      <Form onSubmit={this.handlerRegistering}>
+      <Form onSubmit={this.handlerRegistering} col="8">
+        {
+          this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
+        }
         <FormGroup>
           <Label for="firstName">First Name</Label>
           <Input
@@ -65,6 +71,8 @@ class RegisterForm extends React.Component {
           <Input
             type="text"
             name="username"
+            minLength="5"
+            autoComplete="off"
             value={this.state.username}
             onChange={this.handlerChange}
           ></Input>
@@ -72,16 +80,19 @@ class RegisterForm extends React.Component {
         <FormGroup>
           <Label>Password</Label>
           <Input
-            type="text"
+            type="password"
             name="password"
+            minLength="5"
+            autoComplete="off"
             value={this.state.password}
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <button
+        <Button
           type="submit"
-          onClick={this.handlerRegistering}  
-        >Log In</button>
+          onClick={this.handlerLogIn}
+          color="primary" size="md" block
+        >Sign Up</Button>
       </Form>
     )
   }

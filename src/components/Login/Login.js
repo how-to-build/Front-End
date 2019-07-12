@@ -7,8 +7,7 @@ import RegisterForm from './RegisterForm';
 
 class Login extends React.Component {
   state = {
-    register: false,
-    working: false
+    register: false
   }
 
   handlerAccount = e => {
@@ -21,26 +20,20 @@ class Login extends React.Component {
     }
   }
 
-  handlerFormsWorking = () => {
-    this.setState({ working: !this.state.working });
-  }
-
   render() {
-    console.log(this.props.loginPending, this.props.registerPending);
-
     return (
       <div className="login">
         <div>Login Component</div>
-        <div>
+        <div col="8">
           <div>
             <button onClick={this.handlerAccount}>Log In</button>
             <button onClick={this.handlerAccount}>Register</button>
           </div>
           {
-            (this.props.loginPending || this.props.registerPending) && (<Spinner color="secondary" />)
-          }
-          {
-            this.state.register ? <RegisterForm handlerFormsWorking={this.handlerFormsWorking}/> : <LoginForm handlerFormsWorking={this.handlerFormsWorking}/>
+            (this.props.loginPending || this.props.registerPending) ?
+              (<Spinner color="secondary" />) 
+            :
+              this.state.register ? <RegisterForm /> : <LoginForm />
           }
         </div>
       </div>
