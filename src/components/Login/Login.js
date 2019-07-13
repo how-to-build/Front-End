@@ -22,14 +22,16 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div col="8">
+      <div className="col-12">
         <ButtonGroup className="d-flex">
           <Button className="w-100" onClick={this.handlerAccount}>Log In</Button>
           <Button className="w-100" onClick={this.handlerAccount}>Register</Button>
         </ButtonGroup>
         {
           (this.props.loginPending || this.props.registerPending) ?
-            (<Spinner color="secondary" />) 
+            (<div className="col-12 h-100 d-flex align-items-center">
+              <Spinner color="secondary" className="mx-auto" />
+            </div>)
           :
             this.state.register ? <RegisterForm /> : <LoginForm />
         }
