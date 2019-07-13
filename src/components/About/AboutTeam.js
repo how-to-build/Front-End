@@ -7,31 +7,31 @@ class AboutTeam extends React.Component {
         name: "Iner Lofgren",
         title: 'Back End Developer',
         github: '',
-        img: 'assets/iner-lofgren.jpg'
+        img: '/assets/iner-lofgren.jpg'
       },
       {
         name: "John O'keffe",
         title: 'Back End Developer',
         github: '',
-        img: 'assets/john-okeffe.jpg'
+        img: '/assets/john-okeffe.jpg'
       },
       {
         name: "Shawn Henry",
         title: 'Front End Developer',
         github: 'https://github.com/shenry45',
-        img: 'assets/shawn-henry.jpg'
+        img: '/assets/shawn-henry.jpg'
       },
       {
         name: "Christian MacDonald",
         title: 'Front End Developer',
         github: '',
-        img: 'assets/christian-macdonald.jpg'
+        img: '/assets/christian-macdonald.jpg'
       },
       {
         name: "Ihab Ali",
         title: 'Front End Developer',
         github: '',
-        img: 'assets/ihab-ali.jpg'
+        img: '/assets/ihab-ali.jpg'
       },
     ]
   }
