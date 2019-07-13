@@ -8,7 +8,7 @@ export const LoggingIn = state => dispatch => {
   dispatch({ type: LOGIN_PENDING, payload: true });
 
   axios
-    .get('https://frozen-hamlet-77739.herokuapp.com/', {
+    .get('https://frozen-hamlet-77739.herokuapp.com/api/login', {
       headers: {
         username: state.username,
         password: state.password

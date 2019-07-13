@@ -8,7 +8,7 @@ export const Registering = state => dispatch => {
   dispatch({ type: REGISTER_PENDING, payload: true });
 
   axios
-    .get('https://frozen-hamlet-77739.herokuapp.com/', {
+    .get('https://frozen-hamlet-77739.herokuapp.com/api/register', {
       headers: {
         firstName: state.firstName,
         lastName: state.lastName,
