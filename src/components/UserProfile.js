@@ -22,8 +22,6 @@ const UserProfile = props => {
           <Label for="password">Password</Label>
           <Input disabled type="text" name="password" value={props.user.password} />
         </FormGroup>
-        {/* <CardText>{props.user.username}</CardText> */}
-        {/* <CardText>{props.user.password}</CardText> */}
         <Button color="secondary" onClick={props.handleClick}>Change Password</Button>
       </CardBody>
     </Card>
