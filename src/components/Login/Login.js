@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Spinner } from 'reactstrap';
+import { Spinner, ButtonGroup, Button } from 'reactstrap';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
@@ -22,20 +22,17 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <div>Login Component</div>
-        <div col="8">
-          <div>
-            <button onClick={this.handlerAccount}>Log In</button>
-            <button onClick={this.handlerAccount}>Register</button>
-          </div>
-          {
-            (this.props.loginPending || this.props.registerPending) ?
-              (<Spinner color="secondary" />) 
-            :
-              this.state.register ? <RegisterForm /> : <LoginForm />
-          }
-        </div>
+      <div col="8">
+        <ButtonGroup className="d-flex">
+          <Button className="w-100" onClick={this.handlerAccount}>Log In</Button>
+          <Button className="w-100" onClick={this.handlerAccount}>Register</Button>
+        </ButtonGroup>
+        {
+          (this.props.loginPending || this.props.registerPending) ?
+            (<Spinner color="secondary" />) 
+          :
+            this.state.register ? <RegisterForm /> : <LoginForm />
+        }
       </div>
     )   
   }
