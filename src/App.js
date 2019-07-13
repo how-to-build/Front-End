@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 
 import Home from './components/Home';
 //import Login from './components/Login/Login';
-import UserProfile from './components/UserProfile.js';
+import ProfilePage from './pages/ProfilePage';
 
 class App extends React.Component {
   state = {
@@ -18,7 +18,7 @@ class App extends React.Component {
           <Route path="/login" render={() => <></>} /> { /* Register is a nested Route */ }
           <Route path="/about" render={() => <></>} />
           <Route path="/contact" render={() => <></>} />
-          <Route path="/profile" render={() => <UserProfile />} />
+          <Route path="/profile" render={() => <ProfilePage />} />
         </Switch>
       </Router>
     );
