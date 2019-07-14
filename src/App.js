@@ -16,11 +16,10 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/login" render={() => <Login />} />{" "}
-          {/* Register is a nested Route */}
-          <Route path="/about" render={() => <About />} />
+          <Route path="/login" render={() => <></>} /> { /* Register is a nested Route */ }
+          <Route path="/about" render={() => <></>} />
           <Route path="/contact" render={() => <></>} />
-          <Route path="/profile" render={() => <></>} />
+          <Route path="/profile" render={() => <UserProfile />} />
         </Switch>
       </Router>
     );
