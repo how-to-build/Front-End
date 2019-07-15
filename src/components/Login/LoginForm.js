@@ -1,14 +1,18 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Alert, Button } from 'reactstrap';
+import { Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { LoggingIn } from '../../actions/LogIn';
 
 class LoginForm extends React.Component {
-  state = {
-    username: "",
-    password: "",
-    isTooShort: false
+  constructor(props){
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+      isTooShort: false
+    }
   }
 
   handlerChange = e => {
@@ -24,19 +28,27 @@ class LoginForm extends React.Component {
 
     if (this.state.username.length > 4 && this.state.password.length > 4) {
       this.props.LoggingIn(this.state);
+
+      if (this.props.logInSuccess) { // if login successful
+        this.props.history.push('/home');
+      }
     } else {
       this.setState({ isTooShort: true });
     }
+
+
   }
 
   render() {
+
+
     return (
       <Form onSubmit={this.handlerLogIn}>
         {
           this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
         }
         <FormGroup>
-          <Label>Username</Label>
+          <Label className="mb-0">Username</Label>
           <Input
             type="text"
             name="username"
@@ -46,7 +58,7 @@ class LoginForm extends React.Component {
           ></Input>
         </FormGroup>
         <FormGroup>
-          <Label>Password</Label>
+          <Label className="mb-0">Password</Label>
           <Input
             type="password"
             name="password"
@@ -65,4 +77,10 @@ class LoginForm extends React.Component {
   }
 }
 
-export default connect(null, { LoggingIn })(LoginForm);
+const mapStateToProps = state => {
+  return {
+    logInSuccess: state.LoggingIn.success
+  }
+}
+
+export default withRouter(connect(mapStateToProps, { LoggingIn })(LoginForm));

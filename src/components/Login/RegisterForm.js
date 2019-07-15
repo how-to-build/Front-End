@@ -29,17 +29,19 @@ class RegisterForm extends React.Component {
       this.props.Registering(this.state);
     } else {
       this.setState({ isTooShort: true });
-    }   
+    }
   }
 
   render() {
+    console.log(this.props);
+
     return (
       <Form onSubmit={this.handlerRegistering} col="8">
         {
           this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
         }
-        <FormGroup>
-          <Label for="firstName">First Name</Label>
+        <FormGroup className="mb-0">
+          <Label className="mb-0" for="firstName">First Name</Label>
           <Input
             type="text"
             name="firstName"
@@ -48,29 +50,32 @@ class RegisterForm extends React.Component {
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <FormGroup>
-          <Label>Last Name</Label>
+        <FormGroup className="mb-0">
+          <Label className="mb-0" for="lastName">Last Name</Label>
           <Input
             type="text"
             name="lastName"
+            id="lastName"
             value={this.state.lastName}
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <FormGroup>
-          <Label>Email</Label>
+        <FormGroup className="mb-0">
+          <Label className="mb-0" for="email">Email</Label>
           <Input
             type="email"
             name="email"
+            id="email"
             value={this.state.email}
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <FormGroup>
-          <Label>Username</Label>
+        <FormGroup className="mb-0">
+          <Label className="mb-0" for="username">Username</Label>
           <Input
             type="text"
             name="username"
+            id="username"
             minLength="5"
             autoComplete="off"
             value={this.state.username}
@@ -78,10 +83,11 @@ class RegisterForm extends React.Component {
           ></Input>
         </FormGroup>
         <FormGroup>
-          <Label>Password</Label>
+          <Label className="mb-0" for="password">Password</Label>
           <Input
             type="password"
             name="password"
+            id="password"
             minLength="5"
             autoComplete="off"
             value={this.state.password}

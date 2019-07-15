@@ -6,8 +6,11 @@ import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
 class Login extends React.Component {
-  state = {
-    register: false
+  constructor(props){
+    super(props);
+    this.state = {
+      register: false
+    }
   }
 
   handlerAccount = e => {
@@ -33,7 +36,10 @@ class Login extends React.Component {
               <Spinner color="secondary" className="mx-auto" />
             </div>)
           :
-            this.state.register ? <RegisterForm /> : <LoginForm />
+            this.state.register ?
+              <RegisterForm />
+            :
+              <LoginForm />
         }
       </div>
     )   
