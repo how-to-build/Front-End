@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Alert, Button } from 'reactstrap';
-import { Redirect, withRouter } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { LoggingIn } from '../../actions/LogIn';
@@ -40,7 +40,7 @@ class LoginForm extends React.Component {
   }
 
   render() {
-
+    console.log(this.props);
 
     return (
       <Form onSubmit={this.handlerLogIn}>

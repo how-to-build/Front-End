@@ -49,8 +49,11 @@ export default class Header extends React.Component {
                   Account
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>Login</DropdownItem>
-                  <DropdownItem>Register</DropdownItem>
+                  <DropdownItem>
+                    {/* <NavItem> */}
+                      <NavLink href="/login">Login</NavLink>
+                    {/* </NavItem> */}
+                  </DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>

@@ -14,6 +14,7 @@ export const LoggingIn = state => dispatch => {
     })
     .then(res => {
       localStorage.setItem('token', res.data.token);
+      dispatch({ type: LOGIN_SUCCESS, payload: true });
       dispatch({ type: LOGIN_PENDING, payload: false });
     })
     .catch(err => {
