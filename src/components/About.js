@@ -27,7 +27,7 @@ const About = () => {
         <section className="probootstrap-hero probootstrap-xs-hero probootstrap-hero-colored">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 text-left probootstrap-hero-text">
+              <div className="col-md-8 text-left probootstrap-hero-text m-3">
                 <h2>Our Team</h2>
               </div>
             </div>

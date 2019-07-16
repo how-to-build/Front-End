@@ -16,8 +16,13 @@ const Contact = () => {
         <div className="container contents">
           <div>
             <div>
+              <br />
               <h3>Drop us a line</h3>
-              <form action="#" method="#" className="probootstrap-form">
+              <form
+                action="#"
+                method="#"
+                className="probootstrap-form w-75 m-4"
+              >
                 <div className="form-group">
                   <label htmlFor="name">Full Name</label>
                   <input
@@ -97,5 +102,5 @@ const Contact = () => {
     </div>
   );
 };
-
+// IA
 export default Contact;
