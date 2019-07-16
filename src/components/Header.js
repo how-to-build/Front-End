@@ -69,15 +69,20 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    {/* <NavItem> */}
-                      <NavLink
-                        href="/login"
-                        onClick={this.handlerClick}
-                      >Login</NavLink>
-                    {/* </NavItem> */}
+                    {
+                      !this.props.loggedIn ?
+                        <NavLink
+                          href="/login"
+                          onClick={this.handlerClick}
+                          className="text-dark"
+                        >Login</NavLink>
+                      :
+                        <NavLink
+                          onClick={this.handlerLogOut}
+                          className="text-dark"
+                        >Log Out</NavLink>
+                    }
                   </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>

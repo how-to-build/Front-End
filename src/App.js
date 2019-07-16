@@ -27,8 +27,8 @@ class App extends React.Component {
 
   render() {   
     return (
-      <div>
-        <Header {...this.props} />
+      <div className="h-100">
+        <Header {...this.props} loggedIn={this.state.loggedIn} />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100"/>} />
           <Route
@@ -41,7 +41,6 @@ class App extends React.Component {
         </Switch>
         <Footer />
       </div>
-
     );
   }
 }

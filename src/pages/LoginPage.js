@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Login from '../components/Login/Login';
-import Footer from '../components/Footer';
 
 const LoginPage = props => {
   return (
@@ -14,7 +13,6 @@ const LoginPage = props => {
           <Login />
         </div>
       </div>
-      <Footer className="pt-2 pb-2" />
     </LoginBackground>
   )
 }

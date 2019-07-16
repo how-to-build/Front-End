@@ -5,8 +5,8 @@ import ContactForm from '../components/Contact/ContactForm';
 
 const ContactPage = () => {
   return(
-    <div className="h-100">
-      <div className="col-md-5 mx-auto mt-4">
+    <div className="bg-light">
+      <div className="col-md-5 mx-auto pt-4 pb-4">
         <div>
           <h1>Contact</h1>
           <hr />
