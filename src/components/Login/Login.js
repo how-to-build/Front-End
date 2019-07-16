@@ -1,11 +1,16 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Spinner, ButtonGroup, Button } from 'reactstrap';
 
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
 class Login extends React.Component {
-  state = {
-    register: false
+  constructor(props){
+    super(props);
+    this.state = {
+      register: false
+    }
   }
 
   handlerAccount = e => {
@@ -20,20 +25,32 @@ class Login extends React.Component {
 
   render() {
     return (
-      <div className="login">
-        <div>Login Component</div>
-        <div>
-          <div>
-            <button onClick={this.handlerAccount}>Log In</button>
-            <button onClick={this.handlerAccount}>Register</button>
-          </div>
-          {
-            this.state.register ? <RegisterForm /> : <LoginForm />
-          }
-        </div>
+      <div className="col-12">
+        <ButtonGroup className="d-flex">
+          <Button className="w-100" onClick={this.handlerAccount}>Log In</Button>
+          <Button className="w-100" onClick={this.handlerAccount}>Register</Button>
+        </ButtonGroup>
+        {
+          (this.props.loginPending || this.props.registerPending) ?
+            (<div className="col-12 h-100 d-flex align-items-center">
+              <Spinner color="secondary" className="mx-auto" />
+            </div>)
+          :
+            this.state.register ?
+              <RegisterForm />
+            :
+              <LoginForm />
+        }
       </div>
-    )
+    )   
   }
 }
 
-export default Login;
+const mapStateToProps = state => {
+  return {
+    loginPending: state.LoggingIn.pending,
+    registerPending: state.Registering.pending
+  }
+}
+
+export default connect(mapStateToProps, {})(Login);
