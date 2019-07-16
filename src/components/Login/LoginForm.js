@@ -1,6 +1,5 @@
 import React from 'react';
 import { Form, FormGroup, Label, Input, Alert, Button } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 
 import { LoggingIn } from '../../actions/LogIn';
@@ -87,4 +86,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default withRouter(connect(mapStateToProps, { LoggingIn })(LoginForm));
+export default connect(mapStateToProps, { LoggingIn })(LoginForm);
