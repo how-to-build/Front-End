@@ -27,7 +27,7 @@ class CardsList extends React.Component {
   render() {
     return (
       <div className="d-flex flex-row flex-wrap align-items-start justify-content-start mt-4 mb-4">
-        <Card className="col-5">
+        <Card className="col-5 m-2">
           <CardImg
             top
             width="100%"

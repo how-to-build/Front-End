@@ -6,17 +6,16 @@ const Contact = () => {
       <section className="probootstrap-hero probootstrap-xs-hero probootstrap-hero-colored">
         <div className="container">
           <div className="row">
-            <div className="text-left probootstrap-hero-text">
+            <div className="text-left probootstrap-hero-text m-3">
               <h1>Contact Us</h1>
             </div>
           </div>
         </div>
       </section>
       <section className="probootstrap-section">
-        <div className="container contents">
+        <div className="container contents m-3">
           <div>
-            <div>
-              <br />
+            <div className="m-2">
               <h3>Drop us a line</h3>
               <form
                 action="#"
