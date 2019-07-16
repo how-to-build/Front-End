@@ -42,7 +42,6 @@ class UserProfile extends React.Component {
             <TabPane tabId="1">
               <CardBody className="text-center">
                 <img src={defaultAvatar} alt="Profile Img" className="img-thumbnail mx-auto d-block" />
-                <CardText>{`${this.props.user.first_name} ${this.props.user.last_name}`}</CardText>
                 <CardText>{this.props.user.email}</CardText>
               </CardBody>
               <CardBody>
