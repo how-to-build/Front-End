@@ -28,12 +28,12 @@ class LoginForm extends React.Component {
 
     if (this.state.username.length > 4 && this.state.password.length > 4) {
       this.props.LoggingIn(this.state);
-
-      if (this.props.logInSuccess) { // if login successful
-        this.props.history.push('/home');
-      }
     } else {
       this.setState({ isTooShort: true });
+
+      setTimeout(()=> {
+        this.setState({ isTooShort: false });
+      }, 5000);
     }
 
 
@@ -43,9 +43,12 @@ class LoginForm extends React.Component {
     console.log(this.props);
 
     return (
-      <Form onSubmit={this.handlerLogIn}>
+      <Form onSubmit={this.handlerLogIn} className="mt-2">
         {
           this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
+        }
+        {
+          this.props.logInFailure === 500 && <Alert color="danger" className="mb-1">Username or password is incorrect. Please try again.</Alert>
         }
         <FormGroup>
           <Label className="mb-0">Username</Label>
@@ -79,7 +82,8 @@ class LoginForm extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    logInSuccess: state.LoggingIn.success
+    logInSuccess: state.LoggingIn.success,
+    logInFailure: state.LoggingIn.error
   }
 }
 

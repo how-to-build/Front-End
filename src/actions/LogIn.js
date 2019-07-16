@@ -19,6 +19,6 @@ export const LoggingIn = state => dispatch => {
     })
     .catch(err => {
       dispatch({ type: LOGIN_PENDING, payload: false });
-      dispatch({ type: LOGIN_ERROR, payload: err });
+      dispatch({ type: LOGIN_ERROR, payload: err.response.status });
     })
 };
