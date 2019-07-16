@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Home from "./components/Home";
-import ProfilePage from "./pages/ProfilePage";
+import About from "./components/About";
+import Login from "./components/Login/Login";
+import UserProfile from "./components/UserProfile";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
@@ -15,10 +17,11 @@ class App extends React.Component {
       <Router>
         <Switch>
           <Route exact path="/" render={() => <Home />} />
-          <Route path="/login" render={() => <></>} /> { /* Register is a nested Route */ }
-          <Route path="/about" render={() => <></>} />
+          <Route path="/login" render={() => <></>} />{" "}
+          {/* Register is a nested Route */}
+          <Route path="/about" render={() => <About />} />
           <Route path="/contact" render={() => <></>} />
-          <Route path="/profile" render={() => <ProfilePage />} />
+          <Route path="/profile" render={() => <UserProfile />} />
         </Switch>
       </Router>
     );
