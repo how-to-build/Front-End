@@ -6,7 +6,7 @@ import { faEnvelope, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 const About = () => {
   return (
     <div>
-      <section className="probootstrap-section gray-bg">
+      <section className="probootstrap-section">
         <div className="container contents">
           <div className="row">
             <div>
