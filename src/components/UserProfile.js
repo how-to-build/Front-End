@@ -1,6 +1,4 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 
 import classnames from 'classnames';
 
@@ -25,7 +23,6 @@ class UserProfile extends React.Component {
   render() {
     return (
       <div>
-        <Header />
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
           <CardBody>
             <CardTitle><h1>Profile</h1></CardTitle>
@@ -68,7 +65,6 @@ class UserProfile extends React.Component {
             </TabPane>
           </TabContent>
         </Card>
-        <Footer />
       </div>
     );
   }
