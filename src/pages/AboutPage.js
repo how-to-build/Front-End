@@ -1,8 +1,7 @@
 import React from 'react';
 
 import Header from '../components/Header';
-import About from '../components/About/About';
-import AboutTeam from '../components/About/AboutTeam';
+import About from '../components/About';
 import Footer from '../components/Footer';
 
 const AboutPage = () => {
@@ -11,7 +10,6 @@ const AboutPage = () => {
       <Header />
       <div className="col-md-5 col-sm-10 mx-auto mb-4">
         <About />
-        <AboutTeam />
       </div>
       <Footer />
     </div>
