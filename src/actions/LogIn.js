@@ -9,13 +9,13 @@ export const LoggingIn = state => dispatch => {
 
   axios
     .post('https://frozen-hamlet-77739.herokuapp.com/api/login', {
-        username: state.username,
+        email: state.email,
         password: state.password
     })
     .then(res => {
       localStorage.setItem('token', res.data.token);
-      dispatch({ type: LOGIN_SUCCESS, payload: true });
       dispatch({ type: LOGIN_PENDING, payload: false });
+      dispatch({ type: LOGIN_SUCCESS, payload: true });
     })
     .catch(err => {
       dispatch({ type: LOGIN_PENDING, payload: false });

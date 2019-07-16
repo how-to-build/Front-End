@@ -8,7 +8,7 @@ class LoginForm extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      username: "",
+      email: "",
       password: "",
       isTooShort: false
     }
@@ -25,7 +25,7 @@ class LoginForm extends React.Component {
   handlerLogIn = e => {
     e.preventDefault();
 
-    if (this.state.username.length > 4 && this.state.password.length > 4) {
+    if (this.state.email.length > 4 && this.state.password.length > 4) {
       this.props.LoggingIn(this.state);
     } else {
       this.setState({ isTooShort: true });
@@ -39,23 +39,21 @@ class LoginForm extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <Form onSubmit={this.handlerLogIn} className="mt-2">
         {
           this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
         }
         {
-          this.props.logInFailure === 500 && <Alert color="danger" className="mb-1">Username or password is incorrect. Please try again.</Alert>
+          this.props.logInFailure === 500 && <Alert color="danger" className="mb-1">Email or password is incorrect. Please try again.</Alert>
         }
         <FormGroup>
-          <Label className="mb-0">Username</Label>
+          <Label className="mb-0">Email</Label>
           <Input
             type="text"
-            name="username"
+            name="email"
             autoComplete="off"
-            value={this.state.username}
+            value={this.state.email}
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>

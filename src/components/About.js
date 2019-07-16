@@ -18,7 +18,7 @@ const About = () => {
                 nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
                 in reprehenderit in voluptate velit esse cillum dolore eu fugiat
                 nulla pariatur. Excepteur sint occaecat cupidatat non proident,
-                sunt in culpa qui officia deserunt mollit anim id est laborum.{" "}
+                sunt in culpa qui officia deserunt mollit anim id est laborum.
               </p>
             </div>
           </div>
@@ -50,11 +50,16 @@ const About = () => {
                     <a
                       href="https://github.com/h0o0bA"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="m-2"
                     >
                       <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href="https://ihabali.com/" target="_blank">
+                    <a
+                      href="https://ihabali.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FontAwesomeIcon icon={faBriefcase} />
                     </a>
                   </div>
@@ -69,12 +74,13 @@ const About = () => {
                   <img
                     className="img-fluid"
                     src="https://avatars2.githubusercontent.com/u/44987616?s=200&v=4"
-                    alt
+                    alt="developer team member"
                   />
                   <div className="align-items-center justify-content-center d-flex">
                     <a
                       href="https://github.com/shenry45"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="m-2"
                     >
                       <FontAwesomeIcon icon={faGithub} />
@@ -91,12 +97,13 @@ const About = () => {
                   <img
                     className="img-fluid"
                     src="https://avatars3.githubusercontent.com/u/39752557?s=200&v=4"
-                    alt
+                    alt="developer team member"
                   />
                   <div className="align-items-center justify-content-center d-flex">
                     <a
                       href="https://github.com/ChristianMacDonald"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="m-2"
                     >
                       <FontAwesomeIcon icon={faGithub} />
@@ -113,12 +120,13 @@ const About = () => {
                   <img
                     className="img-fluid"
                     src="https://avatars0.githubusercontent.com/u/43965984?s=200&v=4"
-                    alt
+                    alt="developer team member"
                   />
                   <div className="align-items-center justify-content-center d-flex">
                     <a
                       href="https://github.com/InerLeeLofgren"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="m-2"
                     >
                       <FontAwesomeIcon icon={faGithub} />
@@ -135,12 +143,13 @@ const About = () => {
                   <img
                     className="img-fluid"
                     src="https://avatars0.githubusercontent.com/u/18667525?s=200&v=4"
-                    alt
+                    alt="developer team member"
                   />
                   <div className="align-items-center justify-content-center d-flex">
                     <a
                       href="https://github.com/jokeefe1"
                       target="_blank"
+                      rel="noopener noreferrer"
                       className="m-2"
                     >
                       <FontAwesomeIcon icon={faGithub} />

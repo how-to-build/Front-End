@@ -5,6 +5,10 @@ import Home from "./components/Home";
 import LoginPage from './pages/LoginPage';
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
+import ContactPage from './pages/ContactPage';
+import Header from './components/Header';
+import Footer from './components/Footer';
+
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const loggedIn = localStorage.hasOwnProperty('token');
@@ -17,24 +21,27 @@ class App extends React.Component {
     } 
   }
 
-  render() {
+  redirectToHome = () => {
+    this.props.history.push('/');
+  }
+
+  render() {   
     return (
-      <Switch>
-        <Route exact path="/" render={() => <Home className="h-100"/>} />
-        <Route path="/login"
-          render={() => {
-            if(this.state.loggedIn) {
-              // console.log(this.props);
-              this.props.history.push('/')
-            } else {
-              return <LoginPage />
-            }
-          }
-        }/>
-        <Route path="/about" render={() => <AboutPage className="h-100" />} />
-        <Route path="/contact" render={() => <></>} />
-        <Route path="/profile" render={() => <ProfilePage />} />
-      </Switch>
+      <div>
+        <Header {...this.props} />
+        <Switch>
+          <Route exact path="/" render={() => <Home className="h-100"/>} />
+          <Route
+            path="/login"
+            render={() => this.state.loggedIn ? this.redirectToHome() : <LoginPage />} 
+          />
+          <Route path="/about" render={() => <AboutPage className="h-100" />} />
+          <Route path="/contact" render={() => <ContactPage />} />
+          <Route path="/profile" render={() => <ProfilePage />} />
+        </Switch>
+        <Footer />
+      </div>
+
     );
   }
 }
