@@ -8,14 +8,16 @@ const ChangePasswordForm = props => {
                 <CardTitle><h1>Change Password</h1></CardTitle>
                 <Form>
                     <FormGroup>
-                        <Label for="previous-password">Previous Password</Label>
-                        <Input type="password" name="previous-password" placeholder="Previous password..." />
+                        <Label for="current-password">Username</Label>
+                        <Input type="password" name="current-password" placeholder="Current password" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="new-password">New Password</Label>
-                        <Input type="password" name="new-password" placeholder="New password..." />
+                        <Input type="password" name="new-password" placeholder="New password" />
                     </FormGroup>
-                    <Button color="secondary">Submit</Button>{' '}
+                    <FormGroup>
+                        <Input type="submit" />
+                    </FormGroup>
                     <Button color="danger" onClick={props.handleClick}>Cancel</Button>
                 </Form>
             </CardBody>
