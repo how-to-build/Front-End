@@ -8,12 +8,12 @@ import GetCards from "../../actions/GetCards";
 
 class CardsList extends React.Component {
   state = {
+    cards: [],
     isLoading: true
   };
 
   componentDidMount() {
-    this.props.GetCards();
-    this.setState({ isLoading: false });
+    this.setState({ cards: this.props.GetCards(), isLoading: false });
   }
 
   render() {

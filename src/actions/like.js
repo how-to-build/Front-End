@@ -1,19 +1,28 @@
-import React, { Component } from "react";
+import React from "react";
 
-// Input: liked: boolean
-// Output: onClick
+class Like extends React.Component {
+  constructor() {
+    super();
+    this.state = {
+      liked: false
+    };
+    this.handleClick = this.handleClick.bind(this);
+  }
 
-const Like = props => {
-  let classes = "fa fa-heart";
-  if (!props.liked) classes += "-o";
-  return (
-    <i
-      onClick={props.onClick}
-      style={{ cursor: "pointer" }}
-      className={classes}
-      aria-hidden="true"
-    />
-  );
-};
+  handleClick() {
+    this.setState({
+      liked: !this.state.liked
+    });
+  }
+
+  render() {
+    const heart = this.state.liked ? "fa fa-heart" : "fa fa-heart-o";
+    return (
+      <div className="customContainer">
+        <i className={heart} onClick={this.handleClick} />
+      </div>
+    );
+  }
+}
 
 export default Like;
