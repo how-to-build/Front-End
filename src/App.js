@@ -11,7 +11,7 @@ import Footer from './components/Footer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const loggedIn = localStorage.hasOwnProperty('token');
+let loggedIn = localStorage.hasOwnProperty('token');
 
 class App extends React.Component {
   constructor(props) {
@@ -22,6 +22,8 @@ class App extends React.Component {
   }
 
   redirectToHome = () => {
+    console.log('redirecting to home');
+
     this.props.history.push('/');
   }
 
@@ -33,7 +35,7 @@ class App extends React.Component {
           <Route exact path="/" render={() => <Home className="h-100"/>} />
           <Route
             path="/login"
-            render={() => this.state.loggedIn ? this.redirectToHome() : <LoginPage />} 
+            render={() => this.state.loggedIn ? this.redirectToHome() : <LoginPage loggedIn={this.state.loggedIn} />} 
           />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />

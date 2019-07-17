@@ -5,6 +5,8 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 
 export const LoggingIn = state => dispatch => {
+  console.log(state);
+
   dispatch({ type: LOGIN_PENDING, payload: true });
 
   axios

@@ -70,7 +70,7 @@ export default class Header extends React.Component {
                 <DropdownMenu right>
                   <DropdownItem>
                     {
-                      !this.props.loggedIn ?
+                      !localStorage.hasOwnProperty('token') ?
                         <NavLink
                           href="/login"
                           onClick={this.handlerClick}
