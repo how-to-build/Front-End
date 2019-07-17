@@ -22,27 +22,46 @@ export default class Header extends React.Component {
       isOpen: false
     };
   }
+
   toggle() {
     this.setState({
       isOpen: !this.state.isOpen
     });
   }
+
+  handlerClick = e => {
+    e.preventDefault();
+
+    console.log(e.target)
+
+    this.props.history.push(e.target.getAttribute('href'));
+  }
+
   render() {
     return (
       <div>
-        <Navbar className="navbar-dark bg-dark" expand="md">
+        <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/">How To</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/">Home</NavLink>
+                <NavLink
+                  href="/"
+                  onClick={this.handlerClick}
+                >Home</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/about/">About</NavLink>
+                <NavLink
+                  href="/about/"
+                  onClick={this.handlerClick}
+                >About</NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contact/">Contact</NavLink>
+                <NavLink
+                  href="/contact/"
+                  onClick={this.handlerClick}
+                >Contact</NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
@@ -50,12 +69,20 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   <DropdownItem>
-                    {/* <NavItem> */}
-                      <NavLink href="/login">Login</NavLink>
-                    {/* </NavItem> */}
+                    {
+                      !localStorage.hasOwnProperty('token') ?
+                        <NavLink
+                          href="/login"
+                          onClick={this.handlerClick}
+                          className="text-dark"
+                        >Login</NavLink>
+                      :
+                        <NavLink
+                          onClick={this.handlerLogOut}
+                          className="text-dark"
+                        >Log Out</NavLink>
+                    }
                   </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
