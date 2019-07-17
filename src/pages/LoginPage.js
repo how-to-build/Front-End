@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import Login from '../components/Login/Login';
-import Footer from '../components/Footer';
 
 const LoginPage = props => {
   return (
@@ -11,10 +10,9 @@ const LoginPage = props => {
           <img src="/assets/shawn-henry.jpg" alt="logo" className="w-75 rounded-circle" />
         </div>
         <div className="col-10 col-sm-10 col-md-3 bg-light d-flex p-4">
-          <Login />
+          <Login loggedIn={props.loggedIn} />
         </div>
       </div>
-      <Footer className="pt-2 pb-2" />
     </LoginBackground>
   )
 }

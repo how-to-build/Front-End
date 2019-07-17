@@ -6,8 +6,8 @@ import { connect } from 'react-redux';
 
 class RegisterForm extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
+    // firstName: '',
+    // lastName: '',
     username: '',
     email: '',
     password: '',
@@ -40,7 +40,7 @@ class RegisterForm extends React.Component {
         {
           this.state.isTooShort && <Alert color="warning">Please make sure you have 5 or more characters in each field.</Alert>
         }
-        <FormGroup className="mb-0">
+        {/* <FormGroup className="mb-0">
           <Label className="mb-0" for="firstName">First Name</Label>
           <Input
             type="text"
@@ -59,7 +59,7 @@ class RegisterForm extends React.Component {
             value={this.state.lastName}
             onChange={this.handlerChange}
           ></Input>
-        </FormGroup>
+        </FormGroup> */}
         <FormGroup className="mb-0">
           <Label className="mb-0" for="email">Email</Label>
           <Input
