@@ -1,5 +1,7 @@
 import React from 'react';
 
+import Contact from '../components/Contact';
+
 const ContactPage = () => {
   return(
     <div className="col-12 bg-light p-0">
