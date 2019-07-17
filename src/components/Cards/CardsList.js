@@ -22,11 +22,12 @@ class CardsList extends React.Component {
         {
           this.props.isLoading ? (
             <Spinner type="grow" color="secondary" />
-          ) : null}
+          ) : null
+        }
         {
           this.props.cards.length >= 1 ?
             this.props.cards.map(card => (
-              <HowToCard key={card.id} card={card} />
+              <HowToCard key={card.howToId} card={card} />
             ))
           : null
         }

@@ -5,7 +5,7 @@ export const ADD_CARD_SUCCESS = 'ADD_CARD_SUCCESS';
 export const ADD_CARD_ERROR = 'ADD_CARD_ERROR';
 
 export const AddCard = state => dispatch => {
-  console.log(state);
+  console.log(state); // this is returning correctly
 
   dispatch({ type: ADD_CARD_PENDING, payload: true });
 

@@ -12,32 +12,41 @@ import Footer from './components/Footer';
 import "bootstrap/dist/css/bootstrap.min.css";
 import AddCard from "./components/AddCardForm";
 
-let loggedIn = localStorage.hasOwnProperty('token');
-
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: loggedIn,
-      username: ''
-    } 
+  state = {
+    loggedIn: false,
+    username: ''
   }
 
   redirectToHome = () => {
-    console.log('redirecting to home');
-
     this.props.history.push('/');
+  }
+
+  handlerLogInState = e => {
+    this.setState({ loggedIn: true });
+  }
+
+  isUserLoggedIn = () => {
+    if (this.state.loggedIn && localStorage.hasOwnProperty('token')) {
+      this.redirectToHome()
+    } else {
+      return <LoginPage loggedIn={this.state.loggedIn}
+      handlerLogInState={this.handlerLogInState} />
+    }
   }
 
   render() {   
     return (
       <div className="h-100">
-        <Header {...this.props} loggedIn={this.state.loggedIn} />
+        <Header
+          {...this.props}
+          loggedIn={this.state.loggedIn}
+        />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100"/>} />
           <Route
             path="/login"
-            render={() => this.state.loggedIn ? this.redirectToHome() : <LoginPage loggedIn={this.state.loggedIn} />} 
+            render={() => this.isUserLoggedIn()} 
           />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />

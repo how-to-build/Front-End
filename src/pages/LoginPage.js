@@ -10,7 +10,11 @@ const LoginPage = props => {
           <img src="/assets/shawn-henry.jpg" alt="logo" className="w-75 rounded-circle" />
         </div>
         <div className="col-10 col-sm-10 col-md-3 bg-light d-flex p-4">
-          <Login loggedIn={props.loggedIn} username={props.username} />
+          <Login
+            loggedIn={props.loggedIn}
+            username={props.username}
+            handlerLogInState={props.handlerLogInState}
+          />
         </div>
       </div>
     </LoginBackground>

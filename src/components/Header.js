@@ -35,9 +35,18 @@ export default class Header extends React.Component {
   handlerClick = e => {
     e.preventDefault();
 
-    console.log(e.target)
-
     this.props.history.push(e.target.getAttribute('href'));
+  }
+
+  handlerLogOut = e => {
+    e.preventDefault();
+
+    if (localStorage.hasOwnProperty('token')) {
+      localStorage.removeItem('token');
+    }
+      this.setState({ loggedIn: false });
+      
+      this.props.history.push('/');
   }
 
   render() {
@@ -73,7 +82,7 @@ export default class Header extends React.Component {
                 <DropdownMenu right>
                   <DropdownItem>
                     {
-                      !localStorage.hasOwnProperty('token') ?
+                      !localStorage.hasOwnProperty('token') && !this.props.loggedIn ?
                         <NavLink
                           href="/login"
                           onClick={this.handlerClick}
