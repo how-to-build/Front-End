@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 import About from '../components/About';
 
@@ -9,7 +9,7 @@ const AboutPage = () => {
         <About />
       </div>
     </div>
-  )
-}
+  );
+};
 
 export default AboutPage;
