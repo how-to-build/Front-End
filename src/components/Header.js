@@ -12,6 +12,9 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
+import styled from 'styled-components';
+
+import AddCardButton from '../components/AddCardButton';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -88,7 +91,21 @@ export default class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
+        {
+          //this.props.user_id ?
+          localStorage.hasOwnProperty('token') ?
+            <AddCardFloater><AddCardButton /></AddCardFloater>
+          :
+            null
+        }
       </div>
     );
   }
 }
+
+const AddCardFloater = styled.div`
+  position: fixed;
+  z-index: 2;
+  right: 30px;
+  bottom: 30px;
+`;

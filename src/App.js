@@ -10,6 +10,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
+import AddCard from "./components/AddCardForm";
 
 let loggedIn = localStorage.hasOwnProperty('token');
 
@@ -17,7 +18,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: loggedIn
+      loggedIn: loggedIn,
+      username: ''
     } 
   }
 
@@ -40,6 +42,7 @@ class App extends React.Component {
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage />} />
+          <Route path="/add" render={() => <AddCard />} />
         </Switch>
         <Footer />
       </div>
