@@ -10,8 +10,8 @@ export const Registering = state => dispatch => {
 
   axios
     .post('https://frozen-hamlet-77739.herokuapp.com/api/signup', {
-      first_name: state.firstName,
-      last_name: state.lastName,
+      // first_name: state.firstName,
+      // last_name: state.lastName,
       email: state.email,
       username: state.username,
       password: state.password

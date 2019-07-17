@@ -2,9 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { Spinner } from "reactstrap";
 
-import HowToCard from "./howToCard";
+import HowToCard from "./HowToCard";
 
-import getCards from "../../actions/getCards";
+import GetCards from "../../actions/GetCards";
 
 class CardsList extends React.Component {
   state = {
@@ -12,7 +12,7 @@ class CardsList extends React.Component {
   };
 
   componentDidMount() {
-    this.props.getCards();
+    this.props.GetCards();
     this.setState({ isLoading: false });
   }
 
@@ -40,5 +40,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { getCards }
+  { GetCards }
 )(CardsList);

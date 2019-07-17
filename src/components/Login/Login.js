@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { Spinner, ButtonGroup, Button } from 'reactstrap';
 
 import LoginForm from './LoginForm';
@@ -23,7 +24,15 @@ class Login extends React.Component {
     }
   }
 
+  handlerRedirect = () => {
+    this.props.history.push('/');
+  }
+
   render() {
+    if (this.props.loginSuccess) {
+      this.handlerRedirect();
+    }
+
     return (
       <div className="col-12">
         <ButtonGroup className="d-flex">
@@ -49,8 +58,9 @@ class Login extends React.Component {
 const mapStateToProps = state => {
   return {
     loginPending: state.LoggingIn.pending,
+    loginSuccess: state.LoggingIn.success,
     registerPending: state.Registering.pending
   }
 }
 
-export default connect(mapStateToProps, {})(Login);
+export default withRouter(connect(mapStateToProps, {})(Login));
