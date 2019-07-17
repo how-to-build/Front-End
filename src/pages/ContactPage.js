@@ -1,19 +1,19 @@
 import React from "react";
 
 import Header from "../components/Header";
-import About from "../components/About";
+import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
-const AboutPage = () => {
+const ContactPage = () => {
   return (
     <div className="col-12 bg-light p-0">
       <Header />
       <div className="col-md-8 col-sm-10 mx-auto mb-4">
-        <About />
+        <Contact />
       </div>
       <Footer />
     </div>
   );
 };
 
-export default AboutPage;
+export default ContactPage;

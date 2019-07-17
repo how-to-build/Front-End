@@ -30,7 +30,7 @@ export default class Header extends React.Component {
   render() {
     return (
       <div>
-        <Navbar className="navbar-dark bg-dark" expand="md">
+        <Navbar color="dark" dark expand="md">
           <NavbarBrand href="/">How To</NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
@@ -49,11 +49,7 @@ export default class Header extends React.Component {
                   Account
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
-                    {/* <NavItem> */}
-                      <NavLink href="/login">Login</NavLink>
-                    {/* </NavItem> */}
-                  </DropdownItem>
+                  <DropdownItem href="/login">Login</DropdownItem>
                   <DropdownItem divider />
                   <DropdownItem>Logout</DropdownItem>
                 </DropdownMenu>
