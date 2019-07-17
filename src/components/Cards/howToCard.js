@@ -4,7 +4,7 @@ import howtoimg from "../../assets/howtoimg.jpg";
 
 const HowToCard = props => {
   return (
-    <Card className="col-5 m-2">
+    <Card className="col-4 m-2">
       <CardImg
         className="m-2 mx-auto d-block"
         top

@@ -18,7 +18,7 @@ class CardsList extends React.Component {
 
   render() {
     return (
-      <div className="d-flex flex-row flex-wrap align-items-start justify-content-start mt-4 mb-4">
+      <div className="d-flex flex-row flex-wrap mt-4 mb-4 row justify-content-md-around align-items-center d-flex">
         {this.props.isLoading ? (
           <Spinner type="grow" color="secondary" />
         ) : null}
