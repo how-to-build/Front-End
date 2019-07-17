@@ -1,8 +1,6 @@
 import React from 'react';
 import {} from 'reactstrap';
 
-import Header from '../components/Header';
-import Footer from '../components/Footer';
 import UserProfile from '../components/UserProfile';
 import ChangePasswordForm from '../components/ChangePasswordForm';
 
@@ -24,9 +22,7 @@ class ProfilePage extends React.Component {
     render() {
         return (
             <div className="col-12 bg-light p-0">
-                <Header />
                 {this.state.changePassword ? <ChangePasswordForm handleClick={this.toggleChangePasswordForm} /> : <UserProfile handleClick={this.toggleChangePasswordForm} />}
-                <Footer />
             </div>
         );
     }
