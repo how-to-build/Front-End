@@ -27,7 +27,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="h-100">
+      <div className="h-100 bg-light">
         <Header {...this.props} loggedIn={this.state.loggedIn} />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100" />} />
