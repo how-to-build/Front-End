@@ -9,7 +9,6 @@ const GetCards = () => dispatch => {
     .get('https://frozen-hamlet-77739.herokuapp.com/api/howTos/')
     .then(res => {      
       dispatch({ type: CARDS_SUCCESS, payload: res.data.allHowTos });
-      // dispatch({ type: CARDS_SUCCESS, payload: cards });
       dispatch({ type: CARDS_PENDING, payload: false });
     })
     .catch(err => dispatch({ type: CARDS_ERROR, payload: err.message }))

@@ -21,7 +21,6 @@ class UserProfile extends React.Component {
   }
 
   render() {
-    console.log(this.props.cards);
     return (
       <div>
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
@@ -48,7 +47,7 @@ class UserProfile extends React.Component {
               <CardBody>
                 <FormGroup>
                   <Label for="username">Username</Label>
-                  <Input disabled type="text" name="username" value={this.props.user.username} />
+                  <Input disabled id="username" value={this.props.user.username || ''} />
                 </FormGroup>
                 <Button color="secondary" onClick={this.props.handleClick}>Change Password</Button>
               </CardBody>
