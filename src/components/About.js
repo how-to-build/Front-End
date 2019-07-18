@@ -11,18 +11,28 @@ const About = () => {
           <div>
             <h1 className="m-3">About Us</h1>
             <hr />
+          </div>
+
+          <div>
             <p className="m-3">
-              How would you like to save $5? How about $100?
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua.
             </p>
             <p className="m-3">
-              Many resort to purchasing new products but what if we decided to make do with what we have? And then how about if we had a way so there is no longer a requirement to know the right people or have that mechanical genius next door. Here is where ____ comes in.
+              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
             </p>
             <p className="m-3">
-              Everyone at ________ works to improve the life of everyone with curated ideas that make life easier and less wasteful. <i>Join the revolution for ingenuity!</i>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia deserunt mollit anim id est laborum.
+              <i> Join the revolution for ingenuity!</i>
             </p>
           </div>
         </div>
       </div>
+
       {/* END row */}
       <div className="m-3">
         <section className="probootstrap-hero probootstrap-xs-hero probootstrap-hero-colored">
@@ -56,7 +66,11 @@ const About = () => {
                     >
                       <FontAwesomeIcon icon={faGithub} />
                     </a>
-                    <a href="https://ihabali.com/" target="_blank" rel="noopener noreferrer">
+                    <a
+                      href="https://ihabali.com/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
                       <FontAwesomeIcon icon={faBriefcase} />
                     </a>
                   </div>
