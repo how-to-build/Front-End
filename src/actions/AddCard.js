@@ -13,7 +13,8 @@ export const AddCard = state => dispatch => {
     .post('https://frozen-hamlet-77739.herokuapp.com/api/howTos', {
       title: state.title,
       description: state.description,
-      user_id: state.user_id
+      user_id: state.user_id,
+      token: `${localStorage.getItem('token')}`
     })
     .then(res => {
       dispatch({ type: ADD_CARD_PENDING, payload: false});

@@ -22,7 +22,7 @@ class App extends React.Component {
     this.props.history.push('/');
   }
 
-  handlerLogInState = e => {
+  handlerLogInState = () => {
     this.setState({ loggedIn: true });
   }
 
