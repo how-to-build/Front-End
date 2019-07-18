@@ -1,8 +1,8 @@
 import React from "react";
 import {} from "reactstrap";
 
-import UserProfile from '../components/UserProfile';
-import ChangePasswordForm from '../components/ChangePasswordForm';
+import UserProfile from "../components/UserProfile";
+import ChangePasswordForm from "../components/ChangePasswordForm";
 
 class ProfilePage extends React.Component {
   constructor(props) {
@@ -21,7 +21,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <div className="col-12 bg-light p-0">
+      <div className="col-12 bg-light p-0 mt-5">
         <div className="mx-auto pb-4 pt-4">
           {this.state.changePassword ? (
             <ChangePasswordForm handleClick={this.toggleChangePasswordForm} />

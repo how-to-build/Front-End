@@ -4,7 +4,7 @@ import AddCardForm from "../components/AddCardForm";
 
 const AddCardPage = () => {
   return (
-    <div className="col-12 bg-light p-0">
+    <div className="col-12 bg-light p-0 mt-5">
       <div className="col-md-8 col-sm-10 mx-auto mb-4">
         <section className="probootstrap-section">
           <div className="container contents">
