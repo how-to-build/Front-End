@@ -44,7 +44,7 @@ export default class Header extends React.Component {
     if (localStorage.hasOwnProperty('token')) {
       localStorage.removeItem('token');
     }
-      this.setState({ loggedIn: false });
+      this.props.handlerLogInState(false);
       
     if (this.props.location.pathname !== '/'){
       this.props.history.push('/');
@@ -52,6 +52,8 @@ export default class Header extends React.Component {
   }
 
   render() {
+    console.log(this.props);
+    
     return (
       <div>
         <Navbar color="dark" dark expand="md">
@@ -78,20 +80,22 @@ export default class Header extends React.Component {
                 <DropdownToggle nav caret>
                   Account
                 </DropdownToggle>
-
                 <DropdownMenu right>
+                  {
+                    localStorage.hasOwnProperty('token') && this.props.loggedIn ?
+                      (<DropdownItem>
+                        <NavLink
+                          href="/profile/"
+                          onClick={this.handlerClick}
+                          className="text-dark"
+                        >
+                        Profile
+                        </NavLink>
+                    </DropdownItem>) : null
+                  }
+                  {/* <DropdownItem divider /> */}
                   <DropdownItem>
-                    <NavLink
-                      href="/profile/"
-                      onClick={this.handlerClick}
-                      className="text-dark"
-                    >
-                      Profile
-                    </NavLink>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    {!localStorage.hasOwnProperty('token') && !this.state.loggedIn ? (
+                    {!localStorage.hasOwnProperty('token') && !this.props.loggedIn ? (
                       <NavLink
                         href="/login"
                         onClick={this.handlerClick}

@@ -26,8 +26,6 @@ class App extends React.Component {
     this.setState({ loggedIn: value });
   }
 
-
-
   isUserLoggedIn = () => {
     if (this.state.loggedIn && localStorage.hasOwnProperty('token')) {
       this.redirectToHome()
@@ -43,6 +41,7 @@ class App extends React.Component {
         <Header
           {...this.props}
           loggedIn={this.state.loggedIn}
+          handlerLogInState={this.handlerLogInState}
         />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100" />} />
