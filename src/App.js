@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
 import AddCardPage from "./pages/AddCardPage";
+import HowtoContentPage from "./pages/HowtoContentPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -50,6 +51,10 @@ class App extends React.Component {
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage />} />
           <Route path="/add" render={() => <AddCardPage />} />
+          <Route
+            path="/HowtoContentPage/:id"
+            render={() => <HowtoContentPage />}
+          />
         </Switch>
         <Footer />
       </div>
