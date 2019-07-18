@@ -15,7 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class App extends React.Component {
   state = {
     loggedIn: false,
-    username: ''
+    username: 'shawn'
   }
 
   redirectToHome = () => {
