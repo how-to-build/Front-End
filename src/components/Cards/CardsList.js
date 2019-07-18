@@ -24,7 +24,7 @@ class CardsList extends React.Component {
         ) : null}
         {this.props.cards.length >= 1
           ? this.props.cards.map(card => (
-              <HowToCard key={card.id} card={card} />
+              <HowToCard key={card.howToId} card={card} />
             ))
           : null}
       </div>

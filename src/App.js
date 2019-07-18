@@ -6,23 +6,37 @@ import LoginPage from "./pages/LoginPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
+import AddCardPage from "./pages/AddCardPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-let loggedIn = localStorage.hasOwnProperty("token");
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      loggedIn: loggedIn
-    };
-  }
+  state = {
+    loggedIn: false,
+    username: ""
+  };
 
   redirectToHome = () => {
-    console.log("redirecting to home");
-
     this.props.history.push("/");
+  };
+
+  handlerLogInState = value => {
+    this.setState({ loggedIn: value });
+  };
+
+  isUserLoggedIn = () => {
+    if (this.state.loggedIn && localStorage.hasOwnProperty("token")) {
+      this.redirectToHome();
+    } else {
+      return (
+        <LoginPage
+          loggedIn={this.state.loggedIn}
+          handlerLogInState={this.handlerLogInState}
+        />
+      );
+    }
   };
 
   render() {
@@ -31,19 +45,11 @@ class App extends React.Component {
         <Header {...this.props} loggedIn={this.state.loggedIn} />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100" />} />
-          <Route
-            path="/login"
-            render={() =>
-              this.state.loggedIn ? (
-                this.redirectToHome()
-              ) : (
-                <LoginPage loggedIn={this.state.loggedIn} />
-              )
-            }
-          />
+          <Route path="/login" render={() => this.isUserLoggedIn()} />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage />} />
+          <Route path="/add" render={() => <AddCardPage />} />
         </Switch>
         <Footer />
       </div>

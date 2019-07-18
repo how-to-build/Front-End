@@ -11,7 +11,7 @@ export const LoggingIn = state => dispatch => {
 
   axios
     .post('https://frozen-hamlet-77739.herokuapp.com/api/login', {
-        email: state.email,
+        email: state.email.toLowerCase(),
         password: state.password
     })
     .then(res => {
@@ -21,6 +21,6 @@ export const LoggingIn = state => dispatch => {
     })
     .catch(err => {
       dispatch({ type: LOGIN_PENDING, payload: false });
-      dispatch({ type: LOGIN_ERROR, payload: err.response.status });
+      dispatch({ type: LOGIN_ERROR, payload: err });
     })
 };
