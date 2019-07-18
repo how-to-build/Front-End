@@ -21,6 +21,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.props.cards);
     return (
       <div>
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
@@ -54,7 +55,7 @@ class UserProfile extends React.Component {
             </TabPane>
             <TabPane tabId="2">
               {this.props.cards.filter(card => {
-                return card.user_id === this.props.user.id;
+                return card.userId === this.props.user.id;
               }).map((card, index) => <div key={index}>{card.title}</div>)}
             </TabPane>
             <TabPane tabId="3">

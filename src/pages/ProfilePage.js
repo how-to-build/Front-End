@@ -2,6 +2,7 @@ import React from "react";
 import { connect } from 'react-redux';
 
 import { getUser } from '../actions/GetUser';
+import GetCards from '../actions/GetCards';
 
 import UserProfile from '../components/UserProfile';
 import ChangePasswordForm from '../components/ChangePasswordForm';
@@ -23,6 +24,7 @@ class ProfilePage extends React.Component {
 
   componentDidMount() {
     this.props.getUser(this.props.username);
+    this.props.GetCards();
   }
 
   render() {
@@ -47,4 +49,4 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { getUser })(ProfilePage);
+export default connect(mapStateToProps, { getUser, GetCards })(ProfilePage);
