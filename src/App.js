@@ -15,7 +15,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class App extends React.Component {
   state = {
     loggedIn: false,
-    username: ''
+    username: 'shawn'
   }
 
   redirectToHome = () => {
@@ -52,7 +52,7 @@ class App extends React.Component {
           />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
-          <Route path="/profile" render={() => <ProfilePage />} />
+          <Route path="/profile" render={() => <ProfilePage username={this.state.username} />} />
           <Route path="/add" render={() => <AddCardPage />} />
         </Switch>
         <Footer />

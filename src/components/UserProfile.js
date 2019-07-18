@@ -21,6 +21,7 @@ class UserProfile extends React.Component {
   }
 
   render() {
+    console.log(this.props.cards);
     return (
       <div>
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
@@ -53,7 +54,9 @@ class UserProfile extends React.Component {
               </CardBody>
             </TabPane>
             <TabPane tabId="2">
-              <h3>HowTos that the user has created will show up here!</h3>
+              {this.props.cards.filter(card => {
+                return card.userId === this.props.user.id;
+              }).map((card, index) => <div key={index}>{card.title}</div>)}
             </TabPane>
             <TabPane tabId="3">
               <h3>HowTos that the user has liked will show up here!</h3>
@@ -67,8 +70,6 @@ class UserProfile extends React.Component {
 
 UserProfile.defaultProps = {
   user: {
-    first_name: 'John',
-    last_name: 'Doe',
     email: 'johndoe@gmail.com',
     username: 'DefaultUser',
     password: 'password'
