@@ -15,7 +15,8 @@ class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      loggedIn: loggedIn
+      loggedIn: loggedIn,
+      username: 'shawn'
     };
   }
 
@@ -43,7 +44,7 @@ class App extends React.Component {
           />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
-          <Route path="/profile" render={() => <ProfilePage />} />
+          <Route path="/profile" render={() => <ProfilePage username={this.state.username} />} />
         </Switch>
         <Footer />
       </div>

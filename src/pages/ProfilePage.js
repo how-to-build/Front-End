@@ -1,5 +1,7 @@
 import React from "react";
-import {} from "reactstrap";
+import { connect } from 'react-redux';
+
+import { getUser } from '../actions/GetUser';
 
 import UserProfile from '../components/UserProfile';
 import ChangePasswordForm from '../components/ChangePasswordForm';
@@ -19,6 +21,10 @@ class ProfilePage extends React.Component {
     }));
   }
 
+  componentDidMount() {
+    this.props.getUser(this.props.username);
+  }
+
   render() {
     return (
       <div className="col-12 bg-light p-0">
@@ -26,7 +32,7 @@ class ProfilePage extends React.Component {
           {this.state.changePassword ? (
             <ChangePasswordForm handleClick={this.toggleChangePasswordForm} />
           ) : (
-            <UserProfile handleClick={this.toggleChangePasswordForm} />
+            <UserProfile handleClick={this.toggleChangePasswordForm} user={this.props.user} cards={this.props.cards} />
           )}
         </div>
       </div>
@@ -34,4 +40,11 @@ class ProfilePage extends React.Component {
   }
 }
 
-export default ProfilePage;
+const mapStateToProps = state => {
+  return {
+    user: state.GettingUser.user,
+    cards: state.getCards.cards
+  }
+}
+
+export default connect(mapStateToProps, { getUser })(ProfilePage);
