@@ -74,8 +74,7 @@ const Contact = () => {
             <div>
               <h2>Get in touch</h2>
               <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto
-                provident qui tempore natus quos quibusdam soluta at.
+                We love hearing what you have to say! Send us an email with feedback, suggestions, and criticizes (<i>constructive please</i>). We review all messages on ways to bring better value and improve our community.
               </p>
               <h4>USA</h4>
               <ul className="probootstrap-contact-info">
