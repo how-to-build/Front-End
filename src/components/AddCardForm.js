@@ -11,7 +11,7 @@ class AddCard extends React.Component {
   state = {
     title: '',
     description: '',
-    user_id: 5
+    user_id: '1'
   }
 
   handlerChange = e => {

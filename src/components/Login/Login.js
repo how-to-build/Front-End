@@ -30,7 +30,7 @@ class Login extends React.Component {
 
   render() {
     if (this.props.loginSuccess) {
-      this.props.handlerLogInState();
+      this.props.handlerLogInState(true);
       this.handlerRedirect();
     }
 

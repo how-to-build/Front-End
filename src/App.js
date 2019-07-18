@@ -6,11 +6,11 @@ import LoginPage from "./pages/LoginPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import ContactPage from './pages/ContactPage';
+import AddCardPage from "./pages/AddCardPage";
 import Header from './components/Header';
 import Footer from './components/Footer';
 
 import "bootstrap/dist/css/bootstrap.min.css";
-import AddCard from "./components/AddCardForm";
 
 class App extends React.Component {
   state = {
@@ -22,9 +22,11 @@ class App extends React.Component {
     this.props.history.push('/');
   }
 
-  handlerLogInState = () => {
-    this.setState({ loggedIn: true });
+  handlerLogInState = value => {
+    this.setState({ loggedIn: value });
   }
+
+
 
   isUserLoggedIn = () => {
     if (this.state.loggedIn && localStorage.hasOwnProperty('token')) {
@@ -51,7 +53,7 @@ class App extends React.Component {
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage />} />
-          <Route path="/add" render={() => <AddCard />} />
+          <Route path="/add" render={() => <AddCardPage />} />
         </Switch>
         <Footer />
       </div>

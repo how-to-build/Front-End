@@ -46,7 +46,9 @@ export default class Header extends React.Component {
     }
       this.setState({ loggedIn: false });
       
+    if (this.props.location.pathname !== '/'){
       this.props.history.push('/');
+    }
   }
 
   render() {
@@ -80,21 +82,29 @@ export default class Header extends React.Component {
                   Account
                 </DropdownToggle>
                 <DropdownMenu right>
-                  <DropdownItem>
                     {
-                      !localStorage.hasOwnProperty('token') && !this.props.loggedIn ?
-                        <NavLink
-                          href="/login"
-                          onClick={this.handlerClick}
-                          className="text-dark"
-                        >Login</NavLink>
+                      !localStorage.hasOwnProperty('token') && !this.state.loggedIn ?
+                        <DropdownItem>
+                          <NavLink
+                            href="/login"
+                            onClick={this.handlerClick}
+                            className="text-dark"
+                          >Login</NavLink>
+                        </DropdownItem>
                       :
-                        <NavLink
-                          onClick={this.handlerLogOut}
-                          className="text-dark"
-                        >Log Out</NavLink>
+                        (
+                          <DropdownItem>
+                            <NavLink
+                              onClick={this.handlerClick}
+                              className="text-dark"
+                            >Profile</NavLink>
+                            <NavLink
+                              onClick={this.handlerLogOut}
+                              className="text-dark"
+                            >Log Out</NavLink>
+                          </DropdownItem>
+                        )
                     }
-                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
