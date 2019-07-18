@@ -24,8 +24,20 @@ class Login extends React.Component {
     }
   }
 
+  handlerRegisterStatus = () => {
+    this.setState({ register: false });
+  }
+
   handlerRedirect = () => {
     this.props.history.push('/');
+  }
+
+  handlerButtonActive = id => {
+    if (id === "logIn") {
+      return !this.state.register ? 'active' : '';
+    } else {
+      return this.state.register ? 'active' : '';
+    }
   }
 
   render() {
@@ -37,8 +49,8 @@ class Login extends React.Component {
     return (
       <div className="col-12">
         <ButtonGroup className="d-flex">
-          <Button className="w-100" onClick={this.handlerAccount}>Log In</Button>
-          <Button className="w-100" onClick={this.handlerAccount}>Register</Button>
+          <Button className={`w-100 ${this.handlerButtonActive('logIn')}`} onClick={this.handlerAccount}>Log In</Button>
+          <Button className={`w-100 ${this.handlerButtonActive()}`} onClick={this.handlerAccount}>Register</Button>
         </ButtonGroup>
         {
           (this.props.loginPending || this.props.registerPending) ?
@@ -47,7 +59,7 @@ class Login extends React.Component {
             </div>)
           :
             this.state.register ?
-              <RegisterForm />
+              <RegisterForm handlerRegisterStatus={this.handlerRegisterStatus} />
             :
               <LoginForm />
         }

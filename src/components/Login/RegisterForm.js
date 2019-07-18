@@ -27,14 +27,14 @@ class RegisterForm extends React.Component {
 
     if (this.state.username.length > 4 && this.state.password.length > 4) {
       this.props.Registering(this.state);
+      
+      this.props.handlerRegisterStatus();
     } else {
       this.setState({ isTooShort: true });
     }
   }
 
   render() {
-    console.log(this.props);
-
     return (
       <Form onSubmit={this.handlerRegistering} col="8">
         {
@@ -104,4 +104,10 @@ class RegisterForm extends React.Component {
   }
 }
 
-export default connect(null, { Registering })(RegisterForm);
+const mapStateToProps = state => {
+  return {
+    registerSuccess: state.Registering.success
+  }
+}
+
+export default connect(mapStateToProps, { Registering })(RegisterForm);

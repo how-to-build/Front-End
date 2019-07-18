@@ -6,7 +6,6 @@ export const REGISTER_ERROR = "REGISTER_ERROR";
 
 export const Registering = state => dispatch => {
   dispatch({ type: REGISTER_PENDING, payload: true });
-  console.log(state);
 
   axios
     .post('https://frozen-hamlet-77739.herokuapp.com/api/signup', {
@@ -17,14 +16,8 @@ export const Registering = state => dispatch => {
       password: state.password
     })
     .then(res => {
-      console.log(res);
-
-      if (res.token) {
-        localStorage.setItem('token', res.token);
-      
-        dispatch({ type: REGISTER_PENDING, payload: false });
-        dispatch({ type: REGISTER_SUCCESS, payload: true });
-      }
+      dispatch({ type: REGISTER_PENDING, payload: false });
+      dispatch({ type: REGISTER_SUCCESS, payload: true });
     })
     .catch(err => {
       dispatch({ type: REGISTER_PENDING, payload: false });
