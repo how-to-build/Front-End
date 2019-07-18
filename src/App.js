@@ -5,10 +5,11 @@ import Home from "./components/Home";
 import LoginPage from "./pages/LoginPage";
 import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
-import ContactPage from './pages/ContactPage';
+import ContactPage from "./pages/ContactPage";
 import AddCardPage from "./pages/AddCardPage";
-import Header from './components/Header';
-import Footer from './components/Footer';
+import NoMatchPage from "./pages/NoMatchPage";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
@@ -53,6 +54,7 @@ class App extends React.Component {
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage username={this.state.username} />} />
           <Route path="/add" render={() => <AddCardPage />} />
+          <Route component={NoMatchPage} />
         </Switch>
         <Footer />
       </div>

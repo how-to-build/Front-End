@@ -6,15 +6,21 @@ import Like from "../../actions/like";
 const HowToCard = props => {
   return (
     <Card className="col-4 m-2">
-      <CardImg
-        className="m-2 mx-auto d-block"
-        top
-        width="100%"
-        src={howtoimg}
-        alt="Card image cap"
-      />
+      <a href={`/api/HowTos/${props.card.howToId}`}>
+        <CardImg
+          className="m-2 mx-auto d-block"
+          top
+          width="100%"
+          src={howtoimg}
+          alt="Card image cap"
+        />
+      </a>
       <CardBody>
-        <CardTitle>{props.card.title}</CardTitle>
+        <CardTitle className="font-weight-bold">
+          <a href={`/api/HowTos/${props.card.howToId}`}>
+            {props.card.title}
+          </a>
+        </CardTitle>
         <CardText>{props.card.description}</CardText>
         <CardText>
           <small className="text-muted">Likes {props.card.likes}</small>
