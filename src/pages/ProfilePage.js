@@ -1,10 +1,8 @@
 import React from "react";
 import {} from "reactstrap";
 
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import UserProfile from "../components/UserProfile";
-import ChangePasswordForm from "../components/ChangePasswordForm";
+import UserProfile from '../components/UserProfile';
+import ChangePasswordForm from '../components/ChangePasswordForm';
 
 class ProfilePage extends React.Component {
   constructor(props) {

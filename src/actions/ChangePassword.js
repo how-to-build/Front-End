@@ -16,7 +16,7 @@ export const changePassword = (username, password) => dispatch => {
     }).catch(err => {
         dispatch({
             type: CHANGE_PASSWORD_FAILURE,
-            payload: err
+            payload: err.message
         });
     });
 }

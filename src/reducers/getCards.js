@@ -4,7 +4,7 @@ export const CARDS_ERROR = 'CARDS_ERROR';
 
 const initialState = {
   pending: false,
-  cards: '',
+  cards: [],
   error: ''
 }
 
