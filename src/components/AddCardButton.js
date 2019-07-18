@@ -1,6 +1,6 @@
-import React from 'react';
-import { Button } from 'reactstrap';
-import { withRouter } from 'react-router-dom';
+import React from "react";
+import { Button } from "reactstrap";
+import { withRouter } from "react-router-dom";
 
 class AddCartButton extends React.Component {
   // constructor(props) {
@@ -10,16 +10,22 @@ class AddCartButton extends React.Component {
   addHowTo = e => {
     e.preventDefault();
 
-    this.props.history.push('/add');
-  }
+    this.props.history.push("/add");
+  };
 
   render() {
     return (
       <Button
-        className="primary"
+        type="button"
+        color="dark"
+        dark
+        expand="md"
+        className="text-light"
         onClick={this.addHowTo}
-      >+</Button>
-    )
+      >
+        Create How-To Article
+      </Button>
+    );
   }
 }
 

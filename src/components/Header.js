@@ -12,9 +12,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import styled from 'styled-components';
-
-import AddCardButton from '../components/AddCardButton';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -35,99 +32,81 @@ export default class Header extends React.Component {
   handlerClick = e => {
     e.preventDefault();
 
-    this.props.history.push(e.target.getAttribute('href'));
-  }
+    this.props.history.push(e.target.getAttribute("href"));
+  };
 
   handlerLogOut = e => {
     e.preventDefault();
 
-    if (localStorage.hasOwnProperty('token')) {
-      localStorage.removeItem('token');
+    if (localStorage.hasOwnProperty("token")) {
+      localStorage.removeItem("token");
     }
-      this.setState({ loggedIn: false });
-      
-    if (this.props.location.pathname !== '/'){
-      this.props.history.push('/');
+    this.setState({ loggedIn: false });
+
+    if (this.props.location.pathname !== "/") {
+      this.props.history.push("/");
     }
-  }
+  };
 
   render() {
     return (
-      <div>
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">How To</NavbarBrand>
-          <NavbarToggler onClick={this.toggle} />
-          <Collapse isOpen={this.state.isOpen} navbar>
-            <Nav className="ml-auto" navbar>
-              <NavItem>
-                <NavLink href="/" onClick={this.handlerClick}>
-                  Home
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/about/" onClick={this.handlerClick}>
-                  About
-                </NavLink>
-              </NavItem>
-              <NavItem>
-                <NavLink href="/contact/" onClick={this.handlerClick}>
-                  Contact
-                </NavLink>
-              </NavItem>
-              <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
-                  Account
-                </DropdownToggle>
+      <Navbar color="dark" dark expand="md" sticky="top">
+        <NavbarBrand href="/">How To</NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink href="/" onClick={this.handlerClick}>
+                Home
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/about/" onClick={this.handlerClick}>
+                About
+              </NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink href="/contact/" onClick={this.handlerClick}>
+                Contact
+              </NavLink>
+            </NavItem>
+            <UncontrolledDropdown nav inNavbar>
+              <DropdownToggle nav caret>
+                Account
+              </DropdownToggle>
 
-                <DropdownMenu right>
-                  <DropdownItem>
+              <DropdownMenu right>
+                <DropdownItem>
+                  <NavLink
+                    href="/profile/"
+                    onClick={this.handlerClick}
+                    className="text-dark"
+                  >
+                    Profile
+                  </NavLink>
+                </DropdownItem>
+                <DropdownItem divider />
+                <DropdownItem>
+                  {!localStorage.hasOwnProperty("token") &&
+                  !this.state.loggedIn ? (
                     <NavLink
-                      href="/profile/"
+                      href="/login"
                       onClick={this.handlerClick}
                       className="text-dark"
                     >
-                      Profile
+                      Login
                     </NavLink>
-                  </DropdownItem>
-                  <DropdownItem divider />
-                  <DropdownItem>
-                    {!localStorage.hasOwnProperty('token') && !this.state.loggedIn ? (
-                      <NavLink
-                        href="/login"
-                        onClick={this.handlerClick}
-                        className="text-dark"
-                      >
-                        Login
-                      </NavLink>
-                    ) : (
-                      <NavLink
-                        onClick={this.handlerLogOut}
-                        className="text-dark"
-                      >
-                        Log Out
-                      </NavLink>
-                    )}
-                  </DropdownItem>
-                </DropdownMenu>
-              </UncontrolledDropdown>
-            </Nav>
-          </Collapse>
-        </Navbar>
-        {
-          //this.props.user_id ?
-          localStorage.hasOwnProperty('token') ?
-            <AddCardFloater><AddCardButton /></AddCardFloater>
-          :
-            null
-        }
-      </div>
+                  ) : (
+                    <NavLink onClick={this.handlerLogOut} className="text-dark">
+                      Log Out
+                    </NavLink>
+                  )}
+                </DropdownItem>
+              </DropdownMenu>
+            </UncontrolledDropdown>
+          </Nav>
+        </Collapse>
+      </Navbar>
     );
   }
 }
-
-const AddCardFloater = styled.div`
-  position: fixed;
-  z-index: 2;
-  right: 30px;
-  bottom: 30px;
-`;
