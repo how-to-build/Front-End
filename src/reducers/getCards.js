@@ -8,7 +8,7 @@ const initialState = {
   error: ''
 }
 
-export const getCards = (state = initialState, action) => {
+export const GetCards = (state = initialState, action) => {
   switch(action.type) {
     case CARDS_PENDING: 
       return {

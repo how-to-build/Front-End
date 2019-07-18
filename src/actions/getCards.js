@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { CARDS_PENDING, CARDS_SUCCESS, CARDS_ERROR } from '../reducers/getCards.js';
+import { CARDS_PENDING, CARDS_SUCCESS, CARDS_ERROR } from '../reducers/GetCards.js';
 
 const GetCards = () => dispatch => {
   dispatch({ type: CARDS_PENDING, payload: true });

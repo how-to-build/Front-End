@@ -29,6 +29,7 @@ class Login extends React.Component {
   }
 
   handlerRedirect = () => {
+    this.setState({ loginSuccess: false });
     this.props.history.push('/');
   }
 

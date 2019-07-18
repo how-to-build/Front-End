@@ -45,7 +45,7 @@ class ProfilePage extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.GettingUser.user,
-    cards: state.getCards.cards
+    cards: state.GetCards.cards
   }
 }
 
