@@ -49,10 +49,6 @@ class UserProfile extends React.Component {
                   <Label for="username">Username</Label>
                   <Input disabled type="text" name="username" value={this.props.user.username} />
                 </FormGroup>
-                <FormGroup>
-                  <Label for="password">Password</Label>
-                  <Input disabled type="text" name="password" value={this.props.user.password} />
-                </FormGroup>
                 <Button color="secondary" onClick={this.props.handleClick}>Change Password</Button>
               </CardBody>
             </TabPane>

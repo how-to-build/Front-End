@@ -45,7 +45,7 @@ class App extends React.Component {
           loggedIn={this.state.loggedIn}
         />
         <Switch>
-          <Route exact path="/" render={() => <Home className="h-100"/>} />
+          <Route exact path="/" render={() => <Home className="h-100" />} />
           <Route
             path="/login"
             render={() => this.isUserLoggedIn()} 

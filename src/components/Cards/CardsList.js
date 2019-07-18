@@ -8,29 +8,25 @@ import GetCards from "../../actions/GetCards";
 
 class CardsList extends React.Component {
   state = {
+    cards: [],
     isLoading: true
   };
 
   componentDidMount() {
-    this.props.GetCards();
-    this.setState({ isLoading: false });
+    this.setState({ cards: this.props.GetCards(), isLoading: false });
   }
 
   render() {
     return (
-      <div className="d-flex flex-row flex-wrap align-items-start justify-content-start mt-4 mb-4">
-        {
-          this.props.isLoading ? (
-            <Spinner type="grow" color="secondary" />
-          ) : null
-        }
-        {
-          this.props.cards.length >= 1 ?
-            this.props.cards.map(card => (
+      <div className="d-flex flex-row flex-wrap mt-4 mb-4 row justify-content-md-around align-items-center d-flex">
+        {this.props.isLoading ? (
+          <Spinner type="grow" color="secondary" />
+        ) : null}
+        {this.props.cards.length >= 1
+          ? this.props.cards.map(card => (
               <HowToCard key={card.howToId} card={card} />
             ))
-          : null
-        }
+          : null}
       </div>
     );
   }

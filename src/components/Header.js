@@ -60,51 +60,54 @@ export default class Header extends React.Component {
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink
-                  href="/"
-                  onClick={this.handlerClick}
-                >Home</NavLink>
+                <NavLink href="/" onClick={this.handlerClick}>
+                  Home
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink
-                  href="/about/"
-                  onClick={this.handlerClick}
-                >About</NavLink>
+                <NavLink href="/about/" onClick={this.handlerClick}>
+                  About
+                </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink
-                  href="/contact/"
-                  onClick={this.handlerClick}
-                >Contact</NavLink>
+                <NavLink href="/contact/" onClick={this.handlerClick}>
+                  Contact
+                </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
                 <DropdownToggle nav caret>
                   Account
                 </DropdownToggle>
+
                 <DropdownMenu right>
-                    {
-                      !localStorage.hasOwnProperty('token') && !this.state.loggedIn ?
-                        <DropdownItem>
-                          <NavLink
-                            href="/login"
-                            onClick={this.handlerClick}
-                            className="text-dark"
-                          >Login</NavLink>
-                        </DropdownItem>
-                      :
-                        (
-                          <DropdownItem>
-                            <NavLink
-                              onClick={this.handlerClick}
-                              className="text-dark"
-                            >Profile</NavLink>
-                            <NavLink
-                              onClick={this.handlerLogOut}
-                              className="text-dark"
-                            >Log Out</NavLink>
-                          </DropdownItem>
-                        )
-                    }
+                  <DropdownItem>
+                    <NavLink
+                      href="/profile/"
+                      onClick={this.handlerClick}
+                      className="text-dark"
+                    >
+                      Profile
+                    </NavLink>
+                  </DropdownItem>
+                  <DropdownItem divider />
+                  <DropdownItem>
+                    {!localStorage.hasOwnProperty('token') && !this.state.loggedIn ? (
+                      <NavLink
+                        href="/login"
+                        onClick={this.handlerClick}
+                        className="text-dark"
+                      >
+                        Login
+                      </NavLink>
+                    ) : (
+                      <NavLink
+                        onClick={this.handlerLogOut}
+                        className="text-dark"
+                      >
+                        Log Out
+                      </NavLink>
+                    )}
+                  </DropdownItem>
                 </DropdownMenu>
               </UncontrolledDropdown>
             </Nav>
