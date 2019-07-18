@@ -7,6 +7,7 @@ import AddCardButton from "./../components/AddCardButton";
 const Footer = () => {
   return (
     <footer className="bg-light">
+      <br />
       <center>&copy; How To 2019</center>
       {//this.props.user_id ?
       localStorage.hasOwnProperty("token") ? (
