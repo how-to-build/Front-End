@@ -41,72 +41,85 @@ export default class Header extends React.Component {
     if (localStorage.hasOwnProperty("token")) {
       localStorage.removeItem("token");
     }
-    this.setState({ loggedIn: false });
-
-    if (this.props.location.pathname !== "/") {
-      this.props.history.push("/");
+    
+    this.props.handlerLogInState(false);
+      
+    if (this.props.location.pathname !== '/'){
+      this.props.history.push('/');
     }
   };
 
-  render() {
+  render() {    
     return (
-      <Navbar color="dark" dark expand="md" fixed="top">
-        <NavbarBrand href="/">How To</NavbarBrand>
-        <NavbarToggler onClick={this.toggle} />
-        <Collapse isOpen={this.state.isOpen} navbar>
-          <Nav className="ml-auto" navbar>
-            <NavItem>
-              <NavLink href="/" onClick={this.handlerClick}>
-                Home
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/about/" onClick={this.handlerClick}>
-                About
-              </NavLink>
-            </NavItem>
-            <NavItem>
-              <NavLink href="/contact/" onClick={this.handlerClick}>
-                Contact
-              </NavLink>
-            </NavItem>
-            <UncontrolledDropdown nav inNavbar>
-              <DropdownToggle nav caret>
-                Account
-              </DropdownToggle>
-
-              <DropdownMenu right>
-                <DropdownItem>
-                  <NavLink
-                    href="/profile/"
-                    onClick={this.handlerClick}
-                    className="text-dark"
-                  >
-                    Profile
-                  </NavLink>
-                </DropdownItem>
-                <DropdownItem divider />
-                <DropdownItem>
-                  {!localStorage.hasOwnProperty("token") &&
-                  !this.state.loggedIn ? (
-                    <NavLink
-                      href="/login"
-                      onClick={this.handlerClick}
-                      className="text-dark"
-                    >
-                      Login
-                    </NavLink>
-                  ) : (
-                    <NavLink onClick={this.handlerLogOut} className="text-dark">
-                      Log Out
-                    </NavLink>
-                  )}
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
-          </Nav>
-        </Collapse>
-      </Navbar>
+      <div>
+        <Navbar color="dark" dark expand="md">
+          <NavbarBrand href="/">How To</NavbarBrand>
+          <NavbarToggler onClick={this.toggle} />
+          <Collapse isOpen={this.state.isOpen} navbar>
+            <Nav className="ml-auto" navbar>
+              <NavItem>
+                <NavLink href="/" onClick={this.handlerClick}>
+                  Home
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/about/" onClick={this.handlerClick}>
+                  About
+                </NavLink>
+              </NavItem>
+              <NavItem>
+                <NavLink href="/contact/" onClick={this.handlerClick}>
+                  Contact
+                </NavLink>
+              </NavItem>
+              <UncontrolledDropdown nav inNavbar>
+                <DropdownToggle nav caret>
+                  Account
+                </DropdownToggle>
+                <DropdownMenu right>
+                  {
+                    localStorage.hasOwnProperty('token') && this.props.loggedIn ?
+                      (<DropdownItem>
+                        <NavLink
+                          href="/profile/"
+                          onClick={this.handlerClick}
+                          className="text-dark"
+                        >
+                        Profile
+                        </NavLink>
+                    </DropdownItem>) : null
+                  }
+                  {/* <DropdownItem divider /> */}
+                  <DropdownItem>
+                    {!localStorage.hasOwnProperty('token') && !this.props.loggedIn ? (
+                      <NavLink
+                        href="/login"
+                        onClick={this.handlerClick}
+                        className="text-dark"
+                      >
+                        Login
+                      </NavLink>
+                    ) : (
+                      <NavLink
+                        onClick={this.handlerLogOut}
+                        className="text-dark"
+                      >
+                        Log Out
+                      </NavLink>
+                    )}
+                  </DropdownItem>
+                </DropdownMenu>
+              </UncontrolledDropdown>
+            </Nav>
+          </Collapse>
+        </Navbar>
+        {
+          localStorage.hasOwnProperty('token') ?
+            <AddCardFloater><AddCardButton /></AddCardFloater>
+          :
+            null
+        }
+      </div>
     );
   }
 }

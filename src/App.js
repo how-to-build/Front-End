@@ -7,6 +7,7 @@ import AboutPage from "./pages/AboutPage";
 import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
 import AddCardPage from "./pages/AddCardPage";
+import NoMatchPage from "./pages/NoMatchPage";
 import HowtoContentPage from "./pages/HowtoContentPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -42,8 +43,12 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="h-100 bg-light">
-        <Header {...this.props} loggedIn={this.state.loggedIn} />
+      <div className="h-100">
+        <Header
+          {...this.props}
+          loggedIn={this.state.loggedIn}
+          handlerLogInState={this.handlerLogInState}
+        />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100" />} />
           <Route path="/login" render={() => this.isUserLoggedIn()} />
@@ -55,6 +60,7 @@ class App extends React.Component {
             path="/HowtoContentPage/:id"
             render={() => <HowtoContentPage />}
           />
+          <Route component={NoMatchPage} />
         </Switch>
         <Footer />
       </div>
