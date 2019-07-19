@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { changePassword } from '../actions/ChangePassword';
+
 import { Card, CardTitle, CardBody, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const ChangePasswordForm = props => {
@@ -6,11 +9,10 @@ const ChangePasswordForm = props => {
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
             <CardBody>
                 <CardTitle><h1>Change Password</h1></CardTitle>
-                <Form>
-                    <FormGroup>
-                        <Label for="current-password">Username</Label>
-                        <Input type="password" name="current-password" placeholder="Current password" />
-                    </FormGroup>
+                <Form onSubmit={event => {
+                    let newPassword = event.target.elements["new-password"].value;
+                    props.changePassword(props.username, newPassword);
+                }}>
                     <FormGroup>
                         <Label for="new-password">New Password</Label>
                         <Input type="password" name="new-password" placeholder="New password" />
@@ -25,4 +27,4 @@ const ChangePasswordForm = props => {
     );
 }
 
-export default ChangePasswordForm;
+export default connect(() => ({}), { changePassword } )(ChangePasswordForm);
