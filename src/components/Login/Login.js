@@ -41,12 +41,16 @@ class Login extends React.Component {
     }
   }
 
-  render() {
+  componentDidUpdate(prevProps) {
+    console.log(prevProps);
+    
     if (this.props.loginSuccess) {
       this.props.handlerLogInState(true);
       this.handlerRedirect();
     }
+  }
 
+  render() {
     return (
       <div className="col-12">
         <ButtonGroup className="d-flex">

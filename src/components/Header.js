@@ -34,7 +34,7 @@ export default class Header extends React.Component {
 
   handlerClick = e => {
     e.preventDefault();
-
+    
     this.props.history.push(e.target.getAttribute('href'));
   }
 
@@ -44,7 +44,8 @@ export default class Header extends React.Component {
     if (localStorage.hasOwnProperty('token')) {
       localStorage.removeItem('token');
     }
-      this.props.handlerLogInState(false);
+    
+    this.props.handlerLogInState(false);
       
     if (this.props.location.pathname !== '/'){
       this.props.history.push('/');

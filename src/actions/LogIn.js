@@ -5,8 +5,6 @@ export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_ERROR = "LOGIN_ERROR";
 
 export const LoggingIn = state => dispatch => {
-  console.log(state);
-
   dispatch({ type: LOGIN_PENDING, payload: true });
 
   axios
@@ -16,7 +14,6 @@ export const LoggingIn = state => dispatch => {
     })
     .then(res => {
       localStorage.setItem('token', res.data.token);
-      dispatch({ type: LOGIN_PENDING, payload: false });
       dispatch({ type: LOGIN_SUCCESS, payload: true });
     })
     .catch(err => {
