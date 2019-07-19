@@ -3,21 +3,21 @@ import React from "react";
 // import Like from "../actions/like";
 
 const HowToContent = props => {
-  console.log(props);
-
   return (
     <section className="probootstrap-section">
       <div className="container contents">
         <div>
-          {/* <h1 className="m-3 text-center">{this.props.success.success.title}</h1> */}
+          <h1 className="text-center">{props.success.title}</h1>
           <hr />
         </div>
         <div>
-          <p className="m-3">How-To Content</p>
-          <p className="m-3">
-            {/* {this.props.success.success.description} */}
-          </p>
+          <p>Description</p>
+          <p>{props.success.description}</p>
+          <p><u>Created by {props.success.username}</u></p>
         </div>
+        {/* <div> */}
+          {/* {props.comments.map(com => <p>{com.comment}</p>)} */}
+        {/* </div> */}
       </div>
     </section>
   )

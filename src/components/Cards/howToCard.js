@@ -4,16 +4,20 @@ import howtoimg from "../../assets/howtoimg.jpg";
 import Like from "../../actions/like";
 
 const HowToCard = props => {
+  console.log(props);
+
   return (
     <div className="col-11 col-sm-4 mx-auto m-2">
       <Card>
-        <CardImg
-          className="m-2 mx-auto d-block"
-          top
-          width="100%"
-          src={howtoimg}
-          alt="Card image cap"
-        />
+        <a href={`/how-to/${props.card.howToId}`}>
+          <CardImg
+            className="m-2 mx-auto d-block"
+            top
+            width="100%"
+            src={howtoimg}
+            alt="Card image cap"
+          />
+        </a>
         <CardBody>
           <CardTitle>
             <strong>{props.card.title}</strong>

@@ -4,7 +4,8 @@ export const HOW_TO_CONT_ERROR = 'HOW_TO_CONT_ERROR';
 
 const initialState = {
   pending: false,
-  success: {},
+  success: false,
+  content: {},
   error: ''
 }
 
@@ -18,7 +19,8 @@ export const HowToContent = (state = initialState, action) => {
     case HOW_TO_CONT_SUCCESS:
       return {
         ...state,
-        success: action.payload
+        success: true,
+        content: action.payload
       }
     case HOW_TO_CONT_ERROR:
       return {
