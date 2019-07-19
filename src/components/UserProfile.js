@@ -3,6 +3,7 @@ import React from 'react';
 import classnames from 'classnames';
 
 import { Card, CardBody, CardTitle, CardText, Button, FormGroup, Label, Input, Nav, NavItem, NavLink, TabContent, TabPane } from 'reactstrap';
+import HowToCard from './Cards/HowToCard';
 import defaultAvatar from '../assets/defaultavatar.jpg';
 
 class UserProfile extends React.Component {
@@ -54,9 +55,11 @@ class UserProfile extends React.Component {
               </CardBody>
             </TabPane>
             <TabPane tabId="2">
-              {this.props.cards.filter(card => {
-                return card.userId === this.props.user.id;
-              }).map((card, index) => <div key={index}>{card.title}</div>)}
+              <div className="d-flex flex-row flex-wrap mt-4 mb-4 row justify-content-md-around align-items-center d-flex">
+                {this.props.cards.filter(card => {
+                  return card.userId === this.props.user.id;
+                }).map((card, index) => <HowToCard key={index} card={card} />)}
+              </div>
             </TabPane>
             <TabPane tabId="3">
               <h3>HowTos that the user has liked will show up here!</h3>
