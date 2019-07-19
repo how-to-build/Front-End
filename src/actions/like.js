@@ -16,7 +16,9 @@ class Like extends React.Component {
   }
 
   render() {
-    const heart = this.state.liked ? "fa fa-heart" : "fa fa-heart-o";
+    const heart = this.state.liked
+      ? "fa fa-heart text-danger"
+      : "fa fa-heart-o";
     return (
       <div className="customContainer">
         <i className={heart} onClick={this.handleClick} />

@@ -12,9 +12,6 @@ import {
   DropdownMenu,
   DropdownItem
 } from "reactstrap";
-import styled from 'styled-components';
-
-import AddCardButton from '../components/AddCardButton';
 
 export default class Header extends React.Component {
   constructor(props) {
@@ -34,15 +31,15 @@ export default class Header extends React.Component {
 
   handlerClick = e => {
     e.preventDefault();
-    
-    this.props.history.push(e.target.getAttribute('href'));
-  }
+
+    this.props.history.push(e.target.getAttribute("href"));
+  };
 
   handlerLogOut = e => {
     e.preventDefault();
 
-    if (localStorage.hasOwnProperty('token')) {
-      localStorage.removeItem('token');
+    if (localStorage.hasOwnProperty("token")) {
+      localStorage.removeItem("token");
     }
     
     this.props.handlerLogInState(false);
@@ -50,7 +47,7 @@ export default class Header extends React.Component {
     if (this.props.location.pathname !== '/'){
       this.props.history.push('/');
     }
-  }
+  };
 
   render() {    
     return (
@@ -117,7 +114,6 @@ export default class Header extends React.Component {
           </Collapse>
         </Navbar>
         {
-          //this.props.user_id ?
           localStorage.hasOwnProperty('token') ?
             <AddCardFloater><AddCardButton /></AddCardFloater>
           :
@@ -127,10 +123,3 @@ export default class Header extends React.Component {
     );
   }
 }
-
-const AddCardFloater = styled.div`
-  position: fixed;
-  z-index: 2;
-  right: 30px;
-  bottom: 30px;
-`;

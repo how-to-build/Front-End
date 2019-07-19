@@ -8,6 +8,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
 import AddCardPage from "./pages/AddCardPage";
 import NoMatchPage from "./pages/NoMatchPage";
+import HowtoContentPage from "./pages/HowtoContentPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -20,23 +21,27 @@ class App extends React.Component {
   }
 
   redirectToHome = () => {
-    this.props.history.push('/');
-  }
+    this.props.history.push("/");
+  };
 
   handlerLogInState = value => {
     this.setState({ loggedIn: value });
-  }
+  };
 
   isUserLoggedIn = () => {
-    if (this.state.loggedIn && localStorage.hasOwnProperty('token')) {
-      this.redirectToHome()
+    if (this.state.loggedIn && localStorage.hasOwnProperty("token")) {
+      this.redirectToHome();
     } else {
-      return <LoginPage loggedIn={this.state.loggedIn}
-      handlerLogInState={this.handlerLogInState} />
+      return (
+        <LoginPage
+          loggedIn={this.state.loggedIn}
+          handlerLogInState={this.handlerLogInState}
+        />
+      );
     }
-  }
+  };
 
-  render() {   
+  render() {
     return (
       <div className="h-100">
         <Header
@@ -46,14 +51,15 @@ class App extends React.Component {
         />
         <Switch>
           <Route exact path="/" render={() => <Home className="h-100" />} />
-          <Route
-            path="/login"
-            render={() => this.isUserLoggedIn()} 
-          />
+          <Route path="/login" render={() => this.isUserLoggedIn()} />
           <Route path="/about" render={() => <AboutPage className="h-100" />} />
           <Route path="/contact" render={() => <ContactPage />} />
           <Route path="/profile" render={() => <ProfilePage username={this.state.username} />} />
           <Route path="/add" render={() => <AddCardPage />} />
+          <Route
+            path="/HowtoContentPage/:id"
+            render={() => <HowtoContentPage />}
+          />
           <Route component={NoMatchPage} />
         </Switch>
         <Footer />
