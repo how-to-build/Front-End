@@ -8,7 +8,7 @@ import ProfilePage from "./pages/ProfilePage";
 import ContactPage from "./pages/ContactPage";
 import AddCardPage from "./pages/AddCardPage";
 import NoMatchPage from "./pages/NoMatchPage";
-import HowtoContentPage from "./pages/HowtoContentPage";
+import HowToContentPage from "./pages/HowToContentPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -58,7 +58,7 @@ class App extends React.Component {
           <Route path="/add" render={() => <AddCardPage />} />
           <Route
             path="/HowtoContentPage/:id"
-            render={() => <HowtoContentPage {...this.props} />}
+            render={() => <HowToContentPage {...this.props} />}
           />
           <Route component={NoMatchPage} />
         </Switch>
