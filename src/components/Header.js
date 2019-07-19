@@ -113,12 +113,6 @@ export default class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        {
-          localStorage.hasOwnProperty('token') ?
-            <AddCardFloater><AddCardButton /></AddCardFloater>
-          :
-            null
-        }
       </div>
     );
   }

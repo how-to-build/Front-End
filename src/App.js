@@ -58,7 +58,7 @@ class App extends React.Component {
           <Route path="/add" render={() => <AddCardPage />} />
           <Route
             path="/HowtoContentPage/:id"
-            render={() => <HowtoContentPage />}
+            render={() => <HowtoContentPage {...this.props} />}
           />
           <Route component={NoMatchPage} />
         </Switch>
