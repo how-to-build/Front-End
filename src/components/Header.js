@@ -13,6 +13,8 @@ import {
   DropdownItem
 } from "reactstrap";
 
+import AddCardButton from './AddCardButton';
+
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
@@ -113,12 +115,6 @@ export default class Header extends React.Component {
             </Nav>
           </Collapse>
         </Navbar>
-        {
-          localStorage.hasOwnProperty('token') ?
-            <AddCardFloater><AddCardButton /></AddCardFloater>
-          :
-            null
-        }
       </div>
     );
   }
