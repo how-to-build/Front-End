@@ -61,9 +61,6 @@ class UserProfile extends React.Component {
                 }).map((card, index) => <HowToCard key={index} card={card} />)}
               </div>
             </TabPane>
-            <TabPane tabId="3">
-              <h3>HowTos that the user has liked will show up here!</h3>
-            </TabPane>
           </TabContent>
         </Card>
       </div>
