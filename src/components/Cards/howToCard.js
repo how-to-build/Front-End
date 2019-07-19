@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, CardImg, CardBody, CardTitle, CardText } from "reactstrap";
+import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
 import howtoimg from "../../assets/howtoimg.jpg";
 import Like from "../../actions/like";
 
@@ -18,15 +18,14 @@ const HowToCard = props => {
           <CardTitle>
             <strong>{props.card.title}</strong>
           </CardTitle>
-          {/* <CardText>{props.card.description}</CardText> */}
-          <CardText className="d-flex justify-content-between">
+          <CardTitle className="d-flex justify-content-between">
             <Like />
             <small className="text-muted">Likes {props.card.likes}</small>
-          </CardText>
+          </CardTitle>
         </CardBody>
       </Card>
     </div>
-  );
-};
+  )
+}
 
 export default HowToCard;

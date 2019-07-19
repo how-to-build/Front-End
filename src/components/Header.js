@@ -13,8 +13,6 @@ import {
   DropdownItem
 } from "reactstrap";
 
-import AddCardButton from './AddCardButton';
-
 export default class Header extends React.Component {
   constructor(props) {
     super(props);
