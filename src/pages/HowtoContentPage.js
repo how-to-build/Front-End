@@ -16,8 +16,6 @@ class HowtoContentPage extends React.Component {
     const findId = this.props.location.pathname.split('/');
 
     this.props.HowToContentGet(findId[2]);
-    
-    console.log(this.props.contentSuccess);
 
     this.setState({ content: this.props.contentHowTos, isLoading: false });
   }

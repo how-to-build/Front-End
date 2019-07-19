@@ -4,8 +4,6 @@ import howtoimg from "../../assets/howtoimg.jpg";
 import Like from "../../actions/like";
 
 const HowToCard = props => {
-  console.log(props);
-
   return (
     <div className="col-11 col-sm-4 mx-auto m-2">
       <Card>

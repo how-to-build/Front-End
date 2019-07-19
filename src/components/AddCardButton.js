@@ -3,10 +3,6 @@ import { Button } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 class AddCartButton extends React.Component {
-  // constructor(props) {
-  //   super(props);
-  // }
-
   addHowTo = e => {
     e.preventDefault();
 
@@ -18,7 +14,6 @@ class AddCartButton extends React.Component {
       <Button
         type="button"
         color="dark"
-        dark
         expand="md"
         className="text-light"
         onClick={this.addHowTo}
