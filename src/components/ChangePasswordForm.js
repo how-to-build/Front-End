@@ -10,13 +10,14 @@ const ChangePasswordForm = props => {
             <CardBody>
                 <CardTitle><h1>Change Password</h1></CardTitle>
                 <Form onSubmit={event => {
-                    let oldPassword = event.target.elements["old-password"].value;
+                    event.preventDefault();
+                    let password = event.target.elements["password"].value;
                     let newPassword = event.target.elements["new-password"].value;
-                    props.changePassword(props.username, oldPassword, newPassword);
+                    props.changePassword(props.username, password, newPassword);
                 }}>
                     <FormGroup>
-                        <Label for="old-password">Old Password</Label>
-                        <Input type="password" name="old-password" placeholder="Old password" />
+                        <Label for="password">Current Password</Label>
+                        <Input type="password" name="password" placeholder="Current password" />
                     </FormGroup>
                     <FormGroup>
                         <Label for="new-password">New Password</Label>
