@@ -29,7 +29,7 @@ class ProfilePage extends React.Component {
 
   render() {
     return (
-      <div className="col-12 bg-light p-0 mt-5">
+      <div className="col-12 bg-light p-0">
         <div className="mx-auto pb-4 pt-4">
           {this.state.changePassword ? (
             <ChangePasswordForm handleClick={this.toggleChangePasswordForm} username={this.props.user.username}/>

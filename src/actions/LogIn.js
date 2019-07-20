@@ -13,6 +13,8 @@ export const LoggingIn = state => dispatch => {
         password: state.password
     })
     .then(res => {
+      console.log(res.data);
+
       localStorage.setItem('token', res.data.token);
       dispatch({ type: LOGIN_SUCCESS, payload: true });
     })

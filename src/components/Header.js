@@ -52,28 +52,33 @@ export default class Header extends React.Component {
   render() {    
     return (
       <div>
-        <Navbar color="dark" dark expand="md">
-          <NavbarBrand href="/">How To</NavbarBrand>
+        <Navbar color="info" dark expand="md">
+          <NavbarBrand href="/" className="d-flex align-items-center">
+            <img src="/assets/how-to-logo.png" alt="How To logo" width="60px"/>
+            <div className="ml-2">
+              How To
+            </div>
+          </NavbarBrand>
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
               <NavItem>
-                <NavLink href="/" onClick={this.handlerClick}>
+                <NavLink href="/" onClick={this.handlerClick} className="text-light">
                   Home
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/about/" onClick={this.handlerClick}>
+                <NavLink href="/about/" onClick={this.handlerClick} className="text-light">
                   About
                 </NavLink>
               </NavItem>
               <NavItem>
-                <NavLink href="/contact/" onClick={this.handlerClick}>
+                <NavLink href="/contact/" onClick={this.handlerClick} className="text-light">
                   Contact
                 </NavLink>
               </NavItem>
               <UncontrolledDropdown nav inNavbar>
-                <DropdownToggle nav caret>
+                <DropdownToggle nav caret className="text-light">
                   Account
                 </DropdownToggle>
                 <DropdownMenu right>
