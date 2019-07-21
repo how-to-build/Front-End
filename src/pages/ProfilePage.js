@@ -23,13 +23,13 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.username);
+    this.props.getUser(localStorage.getItem('username'));
     this.props.GetCards();
   }
 
   render() {
     return (
-      <div className="col-12 bg-light p-0 mt-5">
+      <div className="col-12 bg-light p-0">
         <div className="mx-auto pb-4 pt-4">
           {this.state.changePassword ? (
             <ChangePasswordForm handleClick={this.toggleChangePasswordForm} username={this.props.user.username}/>

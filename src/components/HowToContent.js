@@ -1,26 +1,54 @@
 import React from "react";
-// import howtoimg from "../assets/howtoimg.jpg";
-// import Like from "../actions/like";
+import styled from 'styled-components';
 
 const HowToContent = props => {
-  console.log(props);
-
   return (
     <section className="probootstrap-section">
       <div className="container contents">
         <div>
-          {/* <h1 className="m-3 text-center">{this.props.success.success.title}</h1> */}
+          <h1>{props.success.title}</h1>
+          <p className="muted"><u>Created by {props.success.username}</u></p>
           <hr />
+          <h4>Description</h4>
+          <p>{props.success.description}</p>
         </div>
-        <div>
-          <p className="m-3">How-To Content</p>
-          <p className="m-3">
-            {/* {this.props.success.success.description} */}
-          </p>
-        </div>
+        <hr />
+        {
+          props.success.steps.length > 0 ?
+            (
+              <div>
+                <h4>Steps:</h4>
+                <ol>
+                  {
+                    props.success.steps.map(step => <Li key={step.id}>{step.description}</Li>)
+                  }
+                </ol>
+              </div>
+            )
+          :
+            <p>No instructions are availabe. :(</p>
+        }
+        <hr />
+        {
+          props.success.comments.length > 0 ?
+            (<div className="pl-3">
+              <h4>Comments</h4>
+              {
+                props.success.comments.map(com => {
+                  return (<p key={com.id} className="mb-0">{com.comment}</p>)
+                })
+              }
+            </div>)
+          :
+              null
+        } 
       </div>
     </section>
   )
 }
+
+const Li = styled.li`
+  list-style-position: inside
+`;
 
 export default HowToContent;

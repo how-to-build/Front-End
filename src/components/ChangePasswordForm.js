@@ -5,6 +5,8 @@ import { changePassword } from '../actions/ChangePassword';
 import { Card, CardTitle, CardBody, Form, FormGroup, Label, Input, Button } from 'reactstrap';
 
 const ChangePasswordForm = props => {
+    console.log(props);
+    
     return (
         <Card className="col-md-5 col-sm-10 mx-auto mb-4">
             <CardBody>

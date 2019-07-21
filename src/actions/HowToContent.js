@@ -7,11 +7,9 @@ export const HowToContent = id => dispatch => {
 
   axiosAuth()
     .get(`https://frozen-hamlet-77739.herokuapp.com/api/howTos/all/${id}`)
-    .then(res => {
-      console.log(res);
-      
-      dispatch({ type: HOW_TO_CONT_PENDING, payload: false });
+    .then(res => {      
       dispatch({ type: HOW_TO_CONT_SUCCESS, payload: res.data.howTos });
+      dispatch({ type: HOW_TO_CONT_PENDING, payload: false });
     })
     .catch(err => {
       dispatch({ type: HOW_TO_CONT_PENDING, payload: false });
