@@ -12,6 +12,10 @@ class HowToContentPage extends React.Component {
     content: {}
   }
 
+  returnToHome = () => {
+    this.props.history.push('/');
+  }
+
   componentDidMount() {
     const findId = this.props.location.pathname.split("/");
 
@@ -24,6 +28,11 @@ class HowToContentPage extends React.Component {
     return (
       <div className="col-12 bg-light p-0 mt-5">
         <div className="col-md-8 col-sm-10 mx-auto pb-4 pt-4">
+          <div>
+            <p>
+              <u onClick={this.returnToHome}><i className="fa fa-chevron-left"></i> Return to Home</u>
+            </p>
+          </div>
           {
             !this.props.contentSuccess ?
               <Spinner color="secondary" />
