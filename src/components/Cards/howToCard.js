@@ -24,7 +24,7 @@ class HowToCard extends React.Component {
         <Card>
           <a href={`/how-to/${this.props.card.howToId}`} onClick={this.handlerClick}>
             <CardImg
-              className="m-2 mx-auto d-block"
+              className="mx-auto d-block"
               top
               width="100%"
               src={howtoimg}
@@ -37,7 +37,7 @@ class HowToCard extends React.Component {
                 <strong>{this.props.card.title}</strong>
               </a>
             </CardTitle>
-            <CardTitle className="d-flex justify-content-between">
+            <CardTitle className="d-flex justify-content-between mb-0">
               <Like />
               <small className="text-muted">Likes {this.props.card.likes}</small>
             </CardTitle>

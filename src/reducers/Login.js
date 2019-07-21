@@ -3,6 +3,7 @@ import { LOGIN_PENDING, LOGIN_SUCCESS, LOGIN_ERROR } from '../actions/LogIn';
 const initialState = {
   pending: false,
   success: false,
+  username: '',
   error: ''
 }
 
@@ -17,6 +18,7 @@ export const LoggingIn = (state = initialState, action) => {
       return {
         ...state,
         pending: false,
+        username: action.payload,
         success: true
       }
     case LOGIN_ERROR:

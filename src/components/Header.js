@@ -54,7 +54,7 @@ export default class Header extends React.Component {
       <div>
         <Navbar color="info" dark expand="md">
           <NavbarBrand href="/" className="d-flex align-items-center">
-            <img src="/assets/how-to-logo.png" alt="How To logo" width="60px"/>
+            <img src="/assets/how-to-logo.png" alt="How To logo" width="30px"/>
             <div className="ml-2">
               How To
             </div>
@@ -83,7 +83,7 @@ export default class Header extends React.Component {
                 </DropdownToggle>
                 <DropdownMenu right>
                   {
-                    localStorage.hasOwnProperty('token') && this.props.loggedIn ?
+                    localStorage.hasOwnProperty('token') ?
                       (<DropdownItem>
                         <NavLink
                           href="/profile/"
@@ -96,7 +96,7 @@ export default class Header extends React.Component {
                   }
                   {/* <DropdownItem divider /> */}
                   <DropdownItem>
-                    {!localStorage.hasOwnProperty('token') && !this.props.loggedIn ? (
+                    {!localStorage.hasOwnProperty('token') ? (
                       <NavLink
                         href="/login"
                         onClick={this.handlerClick}
