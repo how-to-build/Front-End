@@ -23,7 +23,7 @@ class ProfilePage extends React.Component {
   }
 
   componentDidMount() {
-    this.props.getUser(this.props.username);
+    this.props.getUser(localStorage.getItem('username'));
     this.props.GetCards();
   }
 

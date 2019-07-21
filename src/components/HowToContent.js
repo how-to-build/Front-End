@@ -1,4 +1,5 @@
 import React from "react";
+import styled from 'styled-components';
 
 const HowToContent = props => {
   return (
@@ -17,9 +18,11 @@ const HowToContent = props => {
             (
               <div>
                 <h4>Steps:</h4>
-                {
-                  props.success.steps.map(step => <p key={step.id}>{step.description}</p>)
-                }
+                <ol>
+                  {
+                    props.success.steps.map(step => <Li key={step.id}>{step.description}</Li>)
+                  }
+                </ol>
               </div>
             )
           :
@@ -32,9 +35,7 @@ const HowToContent = props => {
               <h4>Comments</h4>
               {
                 props.success.comments.map(com => {
-                  return (<div key={com.id} className="card p-3 mb-3">
-                    <p className="mb-0">{com.comment}</p>
-                  </div>)
+                  return (<p key={com.id} className="mb-0">{com.comment}</p>)
                 })
               }
             </div>)
@@ -45,5 +46,9 @@ const HowToContent = props => {
     </section>
   )
 }
+
+const Li = styled.li`
+  list-style-position: inside
+`;
 
 export default HowToContent;

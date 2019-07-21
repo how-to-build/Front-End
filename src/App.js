@@ -16,20 +16,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends React.Component {
   state = {
-    loggedIn: false,
-    username: "shawn"
+    loggedIn: false
   };
 
   redirectToHome = () => {
     this.props.history.push("/");
   };
 
-  handlerLogInState = value => {
+  handlerLogInState = (value) => {
+    console.log('user logged in change', this.state.loggedIn);
+    
     this.setState({ loggedIn: value });
+
   };
 
   isUserLoggedIn = () => {
-    if (this.state.loggedIn && localStorage.hasOwnProperty("token")) {
+    if (localStorage.hasOwnProperty("token")) {
       this.redirectToHome();
     } else {
       return (

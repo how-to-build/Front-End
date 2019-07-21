@@ -42,14 +42,17 @@ class Login extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (prevProps.loginSuccess !== this.props.loginSuccess) {
+    console.log('updating 1', prevProps.loginSuccess, this.props.loginSuccess)
+    // if (prevProps.loginSuccess !== this.props.loginSuccess) {
+      console.log('updating conditional')
       if (this.props.loginSuccess) {
+        console.log('updating if success')
         this.props.handlerLogInState(true);
         this.handlerRedirect();
       }
-    }
+    // }
   }
-
+  
   render() {
     return (
       <div className="col-12">

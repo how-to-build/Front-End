@@ -38,8 +38,9 @@ export default class Header extends React.Component {
   handlerLogOut = e => {
     e.preventDefault();
 
-    if (localStorage.hasOwnProperty("token")) {
+    if (localStorage.hasOwnProperty("token") && localStorage.hasOwnProperty("username")) {
       localStorage.removeItem("token");
+      localStorage.removeItem("username");
     }
 
     this.props.handlerLogInState(false);
