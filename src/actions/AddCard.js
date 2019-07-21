@@ -16,9 +16,15 @@ export const AddCard = state => dispatch => {
     .then(res => {
       dispatch({ type: ADD_CARD_PENDING, payload: false});
       dispatch({ type: ADD_CARD_SUCCESS, payload: true});
+
+      setTimeout(() => dispatch(revertSuccess()), 6500);
     })
     .catch(err => {
       dispatch({ type: ADD_CARD_PENDING, payload: false});
       dispatch({ type: ADD_CARD_ERROR, payload: err});
     })
+}
+
+const revertSuccess = () => {
+  return { type: ADD_CARD_SUCCESS, payload: false }
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Form, FormGroup, Label, Input, Button } from 'reactstrap';
+import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 
 import {AddCard as AddingCard} from '../actions/AddCard';
@@ -24,34 +24,44 @@ class AddCard extends React.Component {
     e.preventDefault();
 
     this.props.AddingCard(this.state);
+
+    this.setState({ title: '', description: ''});
   }
 
   render() {
     return(
       <Form>
-          <FormGroup>
-            <Label className="mb-0">title</Label>
-            <Input
-              type="title"
-              name="title"
-              value={this.state.title}
-              onChange={this.handlerChange}
-            ></Input>
-          </FormGroup>
-          <FormGroup>
-            <Label className="mb-0">Description</Label>
-            <Input
-              type="description"
-              name="description"
-              value={this.state.description}
-              onChange={this.handlerChange}
-            ></Input>
-          </FormGroup>
-          <Button
-            type="submit"
-            onClick={this.handlerFormSubmit}
-            color="primary" size="md" block
-          >Add How To</Button>
+        {
+          this.props.success ?
+            <Alert color="success">
+              Thank you for your how-to! Return to Home or your profile to view the card.
+            </Alert>
+          :
+            null
+        }
+        <FormGroup>
+          <Label className="mb-0">Title</Label>
+          <Input
+            type="title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handlerChange}
+          ></Input>
+        </FormGroup>
+        <FormGroup>
+          <Label className="mb-0">Description</Label>
+          <Input
+            type="description"
+            name="description"
+            value={this.state.description}
+            onChange={this.handlerChange}
+          ></Input>
+        </FormGroup>
+        <Button
+          type="submit"
+          onClick={this.handlerFormSubmit}
+          color="primary" size="md" block
+        >Add How To</Button>
       </Form>
     )
   }
@@ -59,7 +69,8 @@ class AddCard extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    pending: state.AddCard.pending
+    pending: state.AddCard.pending,
+    success: state.AddCard.success
   }
 }
 

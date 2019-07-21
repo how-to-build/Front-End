@@ -5,9 +5,9 @@ import { faEnvelope, faBriefcase } from "@fortawesome/free-solid-svg-icons";
 
 const About = () => {
   return (
-    <section className="probootstrap-section">
-      <div className="container contents">
-        <div className="row">
+    <section>
+      <div>
+        <div>
           <div>
             <h1 className="m-3">About Us</h1>
             <hr />
@@ -15,19 +15,13 @@ const About = () => {
 
           <div>
             <p className="m-3">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              How could we improve the lives of everyone around us?
             </p>
             <p className="m-3">
-              Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
-              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-              reprehenderit in voluptate velit esse cillum dolore eu fugiat
-              nulla pariatur.
+              This is the quetion we asked ourselves when developing the concept around How To. The resounding answer was to share true life hacks in a simple platform anyone can use. No longer are the days where you need to know contact a handyman for a simple question or eventually stumble upon a solution. Let us take the hard work out of life. So...
             </p>
             <p className="m-3">
-              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-              officia deserunt mollit anim id est laborum.
-              <i> Join the revolution for ingenuity!</i>
+              <i>How will you help?</i>
             </p>
           </div>
         </div>
