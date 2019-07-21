@@ -6,10 +6,6 @@ import howtoimg from "../../assets/howtoimg.jpg";
 import Like from "./Like";
 
 class HowToCard extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   handlerClick = e => {
     e.preventDefault();
 
