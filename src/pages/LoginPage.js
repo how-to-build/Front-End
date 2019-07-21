@@ -1,6 +1,6 @@
-import React from 'react';
-import styled from 'styled-components';
-import Login from '../components/Login/Login';
+import React from "react";
+import styled from "styled-components";
+import Login from "../components/Login/Login";
 
 const LoginPage = props => {
   return (
@@ -18,11 +18,11 @@ const LoginPage = props => {
         </div>
       </div>
     </LoginBackground>
-  )
-}
+  );
+};
 
 const LoginBackground = styled.div`
-  background-image: url('/assets/login-background.jpg');
+  background-image: url("/assets/login-background.jpg");
   background-scale: cover;
   background-position: center;
   background-repeat: no-repeat;

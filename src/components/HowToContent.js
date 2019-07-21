@@ -1,6 +1,4 @@
 import React from "react";
-// import howtoimg from "../assets/howtoimg.jpg";
-// import Like from "../actions/like";
 
 const HowToContent = props => {
   return (

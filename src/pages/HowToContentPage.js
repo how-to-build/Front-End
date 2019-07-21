@@ -1,19 +1,19 @@
 import React from "react";
-import { connect } from 'react-redux';
-import { Spinner } from 'reactstrap';
+import { connect } from "react-redux";
+import { Spinner } from "reactstrap";
 
 import HowToContent from "../components/HowToContent";
 
 import { HowToContent as HowToContentGet } from "../actions/HowToContent";
 
-class HowtoContentPage extends React.Component {
+class HowToContentPage extends React.Component {
   state = {
     isLoading: true,
     content: {}
   }
 
   componentDidMount() {
-    const findId = this.props.location.pathname.split('/');
+    const findId = this.props.location.pathname.split("/");
 
     this.props.HowToContentGet(findId[2]);
 
@@ -34,7 +34,7 @@ class HowtoContentPage extends React.Component {
       </div>
     );
   }
-};
+}
 
 const mapStateToProps = state => {
   return {
@@ -44,4 +44,7 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps, { HowToContentGet })(HowtoContentPage);
+export default connect(
+  mapStateToProps,
+  { HowToContentGet }
+)(HowToContentPage);

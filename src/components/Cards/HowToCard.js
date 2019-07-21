@@ -3,7 +3,7 @@ import { Card, CardImg, CardBody, CardTitle } from "reactstrap";
 import { withRouter } from "react-router-dom";
 
 import howtoimg from "../../assets/howtoimg.jpg";
-import Like from "../../actions/like";
+import Like from "./Like";
 
 class HowToCard extends React.Component {
   constructor(props) {
