@@ -2,7 +2,8 @@ import React from 'react';
 import { Form, FormGroup, Label, Input, Button, Alert } from 'reactstrap';
 import { connect } from 'react-redux';
 
-import {AddCard as AddingCard} from '../actions/AddCard';
+import {AddCard as AddingCard} from '../../actions/AddCard';
+import AddCardSteps from './AddCardSteps';
 
 // needs to receive user_id or username
 //const user_id = ;
@@ -57,6 +58,7 @@ class AddCard extends React.Component {
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
+        <AddCardSteps />
         <Button
           type="submit"
           onClick={this.handlerFormSubmit}

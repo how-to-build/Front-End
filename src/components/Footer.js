@@ -2,7 +2,7 @@ import React from "react";
 
 import styled from "styled-components";
 
-import AddCardButton from "./../components/AddCardButton";
+import AddCardButton from "./../components/AddCard/AddCardButton";
 
 const Footer = () => {
   return (
