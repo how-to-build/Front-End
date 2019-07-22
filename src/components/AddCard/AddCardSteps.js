@@ -10,8 +10,9 @@ class AddCardSteps extends React.Component {
     e.preventDefault();
 
     const stepIncrementer = this.state.stepCounter;
-  
-    this.setState({ stepCounter: stepIncrementer + 1 });
+    if (this.state.stepCounter <= 6) {
+      this.setState({ stepCounter: stepIncrementer + 1 });
+    }
   }
 
   render() {
@@ -21,8 +22,9 @@ class AddCardSteps extends React.Component {
       children.push(<Input
         type="title"
         name="title"
-        onChange={this.handlerChange}
-        className="mb-2"
+        value={this.props.steps.i}
+        onChange={this.props.handlerStepChange}
+        className={`mb-2 index-${i}`} 
         key={i}
       ></Input>)
     }
@@ -34,7 +36,7 @@ class AddCardSteps extends React.Component {
           {children}
         </FormGroup>
         <FormGroup>
-          <Button onClick={this.handlerAddField}>+</Button>
+          <Button onClick={this.handlerAddField}>+ Add Step (max 7)</Button>
         </FormGroup>
       </FormGroup>
     )

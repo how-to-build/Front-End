@@ -12,6 +12,7 @@ class AddCard extends React.Component {
   state = {
     title: '',
     description: '',
+    steps: {},
     user_id: '1'
   }
 
@@ -19,6 +20,20 @@ class AddCard extends React.Component {
     e.preventDefault();
 
     this.setState({ [e.target.name]: e.target.value });
+  }
+
+  handlerStepChange = e => {
+    let targetClasses = e.target.classList[1];
+    let splitTarget = targetClasses.split('-');
+    let splitTargetIndex = splitTarget[1];
+
+    this.setState({
+      steps: {
+        ...this.state.steps,
+        [splitTargetIndex]: e.target.value
+      }
+    });
+
   }
 
   handlerFormSubmit = e => {
@@ -58,7 +73,7 @@ class AddCard extends React.Component {
             onChange={this.handlerChange}
           ></Input>
         </FormGroup>
-        <AddCardSteps />
+        <AddCardSteps handlerStepChange={this.handlerStepChange} steps={this.state.steps}/>
         <Button
           type="submit"
           onClick={this.handlerFormSubmit}
