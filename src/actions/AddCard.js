@@ -14,11 +14,25 @@ export const AddCard = state => dispatch => {
       user_id: state.user_id
     })
     .then(res => {
-      dispatch({ type: ADD_CARD_PENDING, payload: false});
-      dispatch({ type: ADD_CARD_SUCCESS, payload: true});
+
+      axiosAuth()
+        .post('https://frozen-hamlet-77739.herokuapp.com/api/steps', {
+          howtoId: res.data.addedHowTo[0].id,
+          steps: state.steps
+        })
+        .then(res => {
+          dispatch({ type: ADD_CARD_PENDING, payload: false});
+          dispatch({ type: ADD_CARD_SUCCESS, payload: true});
+          setTimeout(() => dispatch(revertSuccess()), 6500);
+        })
+        .catch(err => console.log(err));
     })
     .catch(err => {
       dispatch({ type: ADD_CARD_PENDING, payload: false});
       dispatch({ type: ADD_CARD_ERROR, payload: err});
     })
+}
+
+const revertSuccess = () => {
+  return { type: ADD_CARD_SUCCESS, payload: false }
 }

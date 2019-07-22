@@ -20,7 +20,7 @@ const HowToContent = props => {
                 <h4>Steps:</h4>
                 <ol>
                   {
-                    props.success.steps.map(step => <Li key={step.id}>{step.description}</Li>)
+                    props.success.steps.map(step => <Li key={step.id}>{step.title}</Li>)
                   }
                 </ol>
               </div>
@@ -35,7 +35,23 @@ const HowToContent = props => {
               <h4>Comments</h4>
               {
                 props.success.comments.map(com => {
-                  return (<p key={com.id} className="mb-0">{com.comment}</p>)
+                  return (
+                    <ul key={com.id} className="mb-2">
+                      <li className=" card p-3">{com.comment}</li>
+                      <ul>
+                        {
+                          com.replies.length > 0 ?
+                            (
+                              com.replies.map(el => {
+                                return <li key={el.id}><strong>Reply:</strong> {el.reply}</li>
+                              })
+                            )
+                          :
+                            null
+                        }
+                      </ul>
+                    </ul>
+                  )
                 })
               }
             </div>)
