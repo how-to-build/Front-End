@@ -1,6 +1,6 @@
 import React from "react";
 
-import AddCardForm from "../components/AddCardForm";
+import AddCardForm from "../components/AddCard/AddCardForm";
 
 const AddCardPage = () => {
   return (

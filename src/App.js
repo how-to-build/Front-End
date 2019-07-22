@@ -23,9 +23,7 @@ class App extends React.Component {
     this.props.history.push("/");
   };
 
-  handlerLogInState = (value) => {
-    console.log('user logged in change', this.state.loggedIn);
-    
+  handlerLogInState = (value) => {    
     this.setState({ loggedIn: value });
 
   };
