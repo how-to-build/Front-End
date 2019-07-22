@@ -12,7 +12,29 @@ class AddCard extends React.Component {
   state = {
     title: '',
     description: '',
-    steps: {},
+    steps: [
+      {
+        title: ''
+      },
+      {
+        title: ''
+      },
+      {
+        title: ''
+      },
+      {
+        title: ''
+      },
+      {
+        title: ''
+      },
+      {
+        title: ''
+      },
+      {
+        title: ''
+      }
+    ],
     user_id: '1'
   }
 
@@ -27,13 +49,20 @@ class AddCard extends React.Component {
     let splitTarget = targetClasses.split('-');
     let splitTargetIndex = splitTarget[1];
 
-    this.setState({
-      steps: {
-        ...this.state.steps,
-        [splitTargetIndex]: e.target.value
-      }
-    });
+    this.handlerStepChangeState(e, splitTargetIndex);
+  }
+  
+  handlerStepChangeState = (e, index) => {
+    const stepsArr = this.state.steps;
 
+    stepsArr[index] = {
+      title: e.target.value,
+      description: 'A recently added how-to'
+    };
+  
+    this.setState({
+      steps: stepsArr
+    });
   }
 
   handlerFormSubmit = e => {
@@ -41,7 +70,10 @@ class AddCard extends React.Component {
 
     this.props.AddingCard(this.state);
 
-    this.setState({ title: '', description: ''});
+    const clearedSteps = this.state.steps;
+    clearedSteps.forEach(el => el.title = '')
+
+    this.setState({ title: '', description: '', steps: clearedSteps });
   }
 
   render() {

@@ -54,7 +54,7 @@ export default class Header extends React.Component {
     return (
       <Navbar color="info" dark expand="md">
         <NavbarBrand href="/" className="d-flex align-items-center">
-          <img src="/assets/how-to-logo.png" alt="How To logo" width="30px"/>
+          <img src="/assets/how-to-logo2.jpg" alt="How To logo" width="30px"/>
           <div className="ml-2">
             How To
           </div>

@@ -20,7 +20,7 @@ const HowToContent = props => {
                 <h4>Steps:</h4>
                 <ol>
                   {
-                    props.success.steps.map(step => <Li key={step.id}>{step.description}</Li>)
+                    props.success.steps.map(step => <Li key={step.id}>{step.title}</Li>)
                   }
                 </ol>
               </div>

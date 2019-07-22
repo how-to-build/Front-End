@@ -3,7 +3,8 @@ import { FormGroup, Label, Input, Button } from 'reactstrap';
 
 class AddCardSteps extends React.Component {
   state = {
-    stepCounter: 1
+    stepCounter: 1,
+    formSubmit: false
   }
 
   handlerAddField = e => {
@@ -15,6 +16,12 @@ class AddCardSteps extends React.Component {
     }
   }
 
+  componentDidUpdate(prevProps) {
+    if (prevProps !== this.props) {
+      this.setState({ formSubmit: true });
+    }
+  }
+
   render() {
     let children = [];
     
@@ -22,7 +29,7 @@ class AddCardSteps extends React.Component {
       children.push(<Input
         type="title"
         name="title"
-        value={this.props.steps.i}
+        value={this.props.steps[i].title || ''}
         onChange={this.props.handlerStepChange}
         className={`mb-2 index-${i}`} 
         key={i}
