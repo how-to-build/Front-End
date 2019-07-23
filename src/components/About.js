@@ -18,7 +18,12 @@ const About = () => {
               How could we improve the lives of everyone around us?
             </p>
             <p className="m-3">
-              This is the quetion we asked ourselves when developing the concept around How To. The resounding answer was to share true life hacks in a simple platform anyone can use. No longer are the days where you need to know contact a handyman for a simple question or eventually stumble upon a solution. Let us take the hard work out of life. So...
+              This is the quetion we asked ourselves when developing the concept
+              around How To. The resounding answer was to share true life hacks
+              in a simple platform anyone can use. No longer are the days where
+              you need to know contact a handyman for a simple question or
+              eventually stumble upon a solution. Let us take the hard work out
+              of life. So...
             </p>
             <p className="m-3">
               <i>How will you help?</i>
@@ -32,7 +37,7 @@ const About = () => {
         <section className="probootstrap-hero probootstrap-xs-hero probootstrap-hero-colored">
           <div className="container">
             <div className="row">
-              <div className="col-md-8 text-left probootstrap-hero-text m-2">
+              <div className="col-8 text-left probootstrap-hero-text m-2">
                 <h2>Our Team</h2>
               </div>
             </div>
@@ -40,7 +45,7 @@ const About = () => {
         </section>
         <section className="team-area section-gap" id="team">
           <div className="container">
-            <div className="row justify-content-md-around align-items-center d-flex">
+            <div className="row justify-content-around align-items-center d-flex">
               <div className="single-team m-2">
                 <div className="thumb">
                   <img
