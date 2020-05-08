@@ -6,7 +6,7 @@ export const HowToContent = id => dispatch => {
   dispatch({ type: HOW_TO_CONT_PENDING, payload: true });
 
   axiosAuth()
-    .get(`https://frozen-hamlet-77739.herokuapp.com/api/howTos/all/${id}`)
+    .get(`${process.env.REACT_APP_REQ_URL}/api/howTos/all/${id}`)
     .then(res => {      
       dispatch({ type: HOW_TO_CONT_SUCCESS, payload: res.data.howTos });
       dispatch({ type: HOW_TO_CONT_PENDING, payload: false });

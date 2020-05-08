@@ -6,7 +6,7 @@ export const GET_USER_FAILURE = 'GET_USER_FAILURE';
 
 export const getUser = username => dispatch => {
     dispatch({ type: GET_USER_START });
-    axiosWithAuth().get(`https://frozen-hamlet-77739.herokuapp.com/api/users/${username}`).then(res => {
+    axiosWithAuth().get(`${process.env.REACT_APP_REQ_URL}/api/users/${username}`).then(res => {
         dispatch({
             type: GET_USER_SUCCESS,
             payload: res.data.user

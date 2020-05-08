@@ -23,7 +23,7 @@ const LoginPage = props => {
 
 const LoginBackground = styled.div`
   background-image: url("/assets/login-background.jpg");
-  background-scale: cover;
+  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;

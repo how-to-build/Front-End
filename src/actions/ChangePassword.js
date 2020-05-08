@@ -6,10 +6,10 @@ export const CHANGE_PASSWORD_FAILURE = 'CHANGE_PASSWORD_FAILURE';
 
 export const changePassword = (username, password, newPassword) => dispatch => {
     dispatch({ type: CHANGE_PASSWORD_START });
-    axiosWithAuth().get(`https://frozen-hamlet-77739.herokuapp.com/api/users/${username}`).then(res => {
+    axiosWithAuth().get(`${process.env.REACT_APP_REQ_URL}/api/users/${username}`).then(res => {
         console.log(res);
 
-        axiosWithAuth().put(`https://frozen-hamlet-77739.herokuapp.com/api/users/${res.data.user.id}`, {
+        axiosWithAuth().put(`${process.env.REACT_APP_REQ_URL}/api/users/${res.data.user.id}`, {
             password: password,
             newPassword: newPassword
         }).then(res => {

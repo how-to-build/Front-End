@@ -6,7 +6,7 @@ const GetCards = () => dispatch => {
   dispatch({ type: CARDS_PENDING, payload: true });
 
   axios
-    .get('https://frozen-hamlet-77739.herokuapp.com/api/howTos/')
+    .get(`${process.env.REACT_APP_REQ_URL}/api/howTos/`)
     .then(res => {      
       dispatch({ type: CARDS_SUCCESS, payload: res.data.allHowTos });
       dispatch({ type: CARDS_PENDING, payload: false });
