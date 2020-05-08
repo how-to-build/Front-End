@@ -8,7 +8,7 @@ export const Registering = state => dispatch => {
   dispatch({ type: REGISTER_PENDING, payload: true });
 
   axios
-    .post('https://frozen-hamlet-77739.herokuapp.com/api/signup', {
+    .post(`${process.env.REACT_APP_REQ_URL}/api/signup`, {
       // first_name: state.firstName,
       // last_name: state.lastName,
       email: state.email,

@@ -8,7 +8,7 @@ export const AddCard = state => dispatch => {
   dispatch({ type: ADD_CARD_PENDING, payload: true });
 
   axiosAuth()
-    .post('https://frozen-hamlet-77739.herokuapp.com/api/howTos', {
+    .post(`${process.env.REACT_APP_REQ_URL}/api/howTos`, {
       title: state.title,
       description: state.description,
       user_id: state.user_id
@@ -16,7 +16,7 @@ export const AddCard = state => dispatch => {
     .then(res => {
 
       axiosAuth()
-        .post('https://frozen-hamlet-77739.herokuapp.com/api/steps', {
+        .post(`${process.env.REACT_APP_REQ_URL}/api/steps`, {
           howtoId: res.data.addedHowTo[0].id,
           steps: state.steps
         })

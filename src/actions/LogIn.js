@@ -8,7 +8,7 @@ export const LoggingIn = state => dispatch => {
   dispatch({ type: LOGIN_PENDING, payload: true });
 
   axios
-    .post('https://frozen-hamlet-77739.herokuapp.com/api/login', {
+    .post(`${process.env.REACT_APP_REQ_URL}/api/login`, {
         email: state.email.toLowerCase(),
         password: state.password
     })
