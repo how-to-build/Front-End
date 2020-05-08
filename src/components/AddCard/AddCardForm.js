@@ -65,15 +65,23 @@ class AddCard extends React.Component {
     });
   }
 
-  handlerFormSubmit = e => {
+  handlerFormSubmit = async e => {
     e.preventDefault();
 
-    this.props.AddingCard(this.state);
+    let strippedSteps = this.state.steps.filter(step => step.title !== "");
 
-    const clearedSteps = this.state.steps;
-    clearedSteps.forEach(el => el.title = '')
+    await this.props.AddingCard({
+      title: this.state.title,
+      description: this.state.description,
+      steps: strippedSteps
+    });
 
-    this.setState({ title: '', description: '', steps: clearedSteps });
+    if (this.props.success) {
+      const clearedSteps = this.state.steps;
+      clearedSteps.forEach(el => el.title = '')
+  
+      this.setState({ title: '', description: '', steps: clearedSteps });
+    }
   }
 
   render() {
